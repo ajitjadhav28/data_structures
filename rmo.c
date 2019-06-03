@@ -18,7 +18,7 @@ void printArr(int *a, int s)
 int main()
 {
     int arr[N], i, j = 0, loc = 0;
-    ps("Enter 3x3 Matrix in Row Major Order:");
+    ps("Enter 3x3 integer matrix in Row Major Order:");
     for(i = 0; i < 9; i++)
         scanf("%d", &arr[i]);
     printArr(arr, N);
