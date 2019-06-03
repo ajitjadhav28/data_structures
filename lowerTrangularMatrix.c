@@ -1,6 +1,6 @@
 // Author: Ajit J.
 // Subject: Data Structures
-// Description: Storing lower trangular matrix in 1D array and accessing it
+// Description: Storing lower trangular matrix in 1D array in Row Major Order and accessing it
 
 #include "mydef.h"
 #define N 3
