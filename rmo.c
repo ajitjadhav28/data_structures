@@ -1,9 +1,11 @@
+// Author: Ajit J.
+// Subject: Data Structures
+// Description: Storing 2D array in 1D array by Row Major Order and accessing it
+
 #include "mydef.h"
 #define N 9
 #define ROWS 3
 #define COLUMNS 3
-
-#define DEFAULT_MATRIX {1,2,3,4,5,6,7,8,9}
 
 void printArr(int *a, int s)
 {
@@ -29,7 +31,7 @@ int main()
         loc = ((i-1)*ROWS) + (j-1);
         printf( Green "Element(%d,%d): %d\n", i, j, arr[loc]);
     } else {
-        fprintf(stderr, Bold_Red "[ERROR]: " Red "i or j value not in range(1-3).\n");
+        fprintf(stderr, Bold_Red "[ERROR]: " Red "i or j value out of range.\n");
         exit(1);
     }
     return 0;

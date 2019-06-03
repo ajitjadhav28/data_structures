@@ -1,6 +1,10 @@
-rmo : rmo.c mydef.h
-	gcc rmo.c -o rmo
+outputs = rmo.bin ltm.bin
+all: $(outputs)
+rmo.bin : rmo.c mydef.h
+	gcc -Wall rmo.c -o rmo.bin
 
+ltm.bin : lowerTrangularMatrix.c mydef.h mylib.c
+	gcc -Wall $^ -o $@
 
 clean:
-	rm rmo
+	rm $(outputs)

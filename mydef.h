@@ -3,8 +3,8 @@
 
 #define ps(x) puts(x)
 #define pc(x) printf("%c", x)
-#define pi(x) printf("%d", i)
-#define pf(x) printf("%f", f)
+#define pi(x) printf("%d", x)
+#define pf(x) printf("%f", x)
 
 #define si(x) scanf("%d", &x)
 
@@ -22,3 +22,5 @@
 #define Bold_Cyan "\033[1;36m"
 #define Reset "\033[0m"
 #define ResetColor() printf("\033[0m")
+
+void printOutOfRangeError();
