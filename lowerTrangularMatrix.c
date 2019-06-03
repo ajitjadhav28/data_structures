@@ -47,7 +47,7 @@ int main(int argc, char const *argv[])
                 scanf("%d", &temp);
                 if(temp != 0)
                 {
-                    printf( Yellow "[warning]: Ignoring values on locations (col > row) for Lower Trangular Matrix.\n");
+                    printf( Yellow "[warning]: Ignoring values on locations (col > row) for Lower Trangular Matrix.\n" Reset);
                 }
             }
         }
