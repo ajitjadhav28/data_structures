@@ -24,3 +24,4 @@
 #define ResetColor() printf("\033[0m")
 
 void printOutOfRangeError();
+void printMemNotAvailable();
