@@ -14,7 +14,7 @@ struct Node {
     struct Node *prev;
 };
 
-struct Node *Top=NULL, *Head=NULL;
+struct Node *Top=NULL;
 
 // Returns node
 struct Node * getNode()
@@ -31,9 +31,9 @@ struct Node * getNode()
 // Creates new node and adds data to it
 void push(int data)
 {
-    if (Head == NULL)               // if there is no node in stack create first
+    if (Top == NULL)               // if there is no node in stack create first
     {
-        Top = Head = getNode();
+        Top = getNode();
         Top->prev = NULL;
     }
     else {                          // else join new to existing
@@ -57,7 +57,7 @@ int pop()
     data = Top->data;           // get data from top node
     if(Top->prev == NULL){      // If node is last node
         free(Top);
-        Head = Top = NULL;
+        Top = NULL;
     } else {                    // If node is not last
         Top = Top->prev;
         free(Top->next);
@@ -78,6 +78,7 @@ int main(int argc, char const *argv[])
     printf("%d\n", pop());
     printf("%d\n", pop());
     printf("%d\n", pop());
-    while(1) push(10);          // To check mem full
+    printf("%d\n", pop());
+    //while(1) push(10);          // To check mem full
     return 0;
 }
