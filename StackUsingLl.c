@@ -1,3 +1,7 @@
+// Author: Ajit J.
+// Subject: Data Structures
+// Description: Implementation of stack using Doubly Linked List
+
 #include "mydef.h"
 #include <sys/resource.h>
 
