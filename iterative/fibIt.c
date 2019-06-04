@@ -1,5 +1,6 @@
 #include "../mydef.h"
 #include <sys/resource.h>
+#include <ctype.h>
 
 // Memory Limit 32MB
 struct rlimit r1 = {33554432, 33554432};
@@ -26,6 +27,11 @@ int main(int argc, char const *argv[])
         printf("Enter number to find fibonacci:\n");
         scanf("%d", &num);
     } else {
+        if(!isdigit(argv[1][0])) {
+            printf( Yellow "Enter integer number as first argument "
+                    "\nto find fibonacci. Example: %s" Bold_Yellow " 50\n", argv[0]);
+            exit(1);
+        }
         num = atoi(argv[1]);
     }
     printf("Fibonacci for number %d is: %ld\n", num, fib(num));
