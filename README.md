@@ -6,8 +6,8 @@ Programs from Data structures subject.
 * **Kernel:** 4.15.x
 * **Compiler:** gcc 7.4.0
 
-#### Build programs
+#### Build binaries
 `make`
 
-#### Clean Binaries
+#### Clean bins
 `make clean`
