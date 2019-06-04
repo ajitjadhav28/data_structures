@@ -1,4 +1,8 @@
 #include "mydef.h"
+#include <sys/resource.h>
+
+// Memory Limit 32MB
+struct rlimit r1 = {33554432, 33554432};
 
 struct Node {
     int data;
@@ -58,13 +62,18 @@ int pop()
 }
 
 int main(int argc, char const *argv[])
-{
+{   
+    setrlimit(RLIMIT_AS, &r1);
+    ps("Pushing 10 on stack");
     push(10);
+    ps("Pushing 20 on stack");
     push(20);
+    ps("Pushing 30 on stack");
     push(30);
+    ps("Popping from stack: ");
     printf("%d\n", pop());
     printf("%d\n", pop());
     printf("%d\n", pop());
-    printf("%d\n", pop());
+    while(1) push(10);          // To check mem full
     return 0;
 }
