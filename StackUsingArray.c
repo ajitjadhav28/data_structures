@@ -17,7 +17,7 @@ void printStack()
 int pop()
 {
     if(top == -1){
-        fprintf(stderr, Red "[ERROR]: Stack Underflow\n" Reset);
+        printUnderflowError("Stack");
         exit(1);
     }
     return arr[top--];
@@ -26,7 +26,7 @@ int pop()
 void push(int item)
 {
     if(top == N-1){
-        fprintf(stderr, Red "[ERROR]: Stack Overflow" Reset);
+        printOverflowError("Stack");
         exit(2);
     }
     arr[++top] = item;

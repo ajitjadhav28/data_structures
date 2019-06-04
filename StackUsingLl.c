@@ -51,7 +51,7 @@ int pop()
     int data;
     if(!Top)                    // If no Nodes
     {
-        fprintf(stderr, Bold_Red "[ERROR]: " Red "Stack Underflow.\n");
+        printUnderflowError("Stack");
         exit(2);
     }
     data = Top->data;           // get data from top node

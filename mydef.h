@@ -25,3 +25,6 @@
 
 void printOutOfRangeError();
 void printMemNotAvailable();
+void printOverflowError(char *);
+void printUnderflowError(char *);
+void printError(char *);
