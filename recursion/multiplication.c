@@ -1,3 +1,6 @@
+// Author: Ajit J.
+// Subject: Data Structures
+
 #include "../mydef.h"
 #include <sys/resource.h>
 #include <ctype.h>
