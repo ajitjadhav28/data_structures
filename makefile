@@ -1,29 +1,33 @@
+CC=gcc
 PROGS = rmo.bin ltm.bin StackUsingArray.bin StackUsingLl.bin \
-		fibRec.bin fibIt.bin linearQueue.bin
+		fibRec.bin fibIt.bin linearQueue.bin mulRec.bin
 mylibs = mydef.h mylib.c
 
 all: $(PROGS)
 
 rmo.bin : rmo.c mydef.h
-	gcc -Wall rmo.c -o rmo.bin
+	$(CC) -Wall rmo.c -o rmo.bin
 
 ltm.bin : lowerTrangularMatrix.c $(mylibs)
-	gcc -Wall $^ -o $@
+	$(CC) -Wall $^ -o $@
 
 StackUsingArray.bin : StackUsingArray.c $(mylibs)
-	gcc -Wall $^ -o $@
+	$(CC) -Wall $^ -o $@
 
 StackUsingLl.bin : StackUsingLl.c $(mylibs)
-	gcc -Wall $^ -o $@
+	$(CC) -Wall $^ -o $@
 
 fibRec.bin : ./recursion/fib.c $(mylibs)
-	gcc -Wall $^ -o $@
+	$(CC) -Wall $^ -o $@
 
 fibIt.bin : ./iterative/fibIt.c $(mylibs) 
-	gcc -Wall $^ -o $@
+	$(CC) -Wall $^ -o $@
 
 linearQueue.bin : linearQueue.c $(mylibs)
-	gcc -Wall $^ -o $@
+	$(CC) -Wall $^ -o $@
+
+mulRec.bin : ./recursion/multiplication.c $(mylibs)
+	$(CC) -Wall $^ -o $@
 
 clean:
 	rm $(PROGS)
