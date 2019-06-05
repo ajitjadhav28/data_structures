@@ -1,7 +1,8 @@
 CC=gcc
 CFLAG=-Wall
 PROGS = rmo.bin ltm.bin StackUsingArray.bin StackUsingLl.bin \
-		fibRec.bin fibIt.bin linearQueue.bin mulRec.bin
+		fibRec.bin fibIt.bin linearQueue.bin mulRec.bin mulIt.bin \
+		intDivisionIt.bin intDivisionRec.bin
 mylibs = mydef.h mylib.c
 
 all: $(PROGS)
@@ -21,13 +22,22 @@ StackUsingLl.bin : StackUsingLl.c $(mylibs)
 fibRec.bin : ./recursion/fib.c $(mylibs)
 	$(CC) $(CFLAG) $^ -o $@
 
-fibIt.bin : ./iterative/fibIt.c $(mylibs) 
+fibIt.bin : ./iteration/fibIt.c $(mylibs) 
 	$(CC) $(CFLAG) $^ -o $@
 
 linearQueue.bin : linearQueue.c $(mylibs)
 	$(CC) $(CFLAG) $^ -o $@
 
 mulRec.bin : ./recursion/multiplication.c $(mylibs)
+	$(CC) $(CFLAG) $^ -o $@
+
+mulIt.bin : ./iteration/multiplication.c $(mylibs)
+	$(CC) $(CFLAG) $^ -o $@
+
+intDivisionIt.bin : ./iteration/intDivision.c $(mylibs)
+	$(CC) $(CFLAG) $^ -o $@
+
+intDivisionRec.bin : ./iteration/intDivision.c $(mylibs)
 	$(CC) $(CFLAG) $^ -o $@
 
 clean:
