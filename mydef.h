@@ -22,6 +22,7 @@
 #define Bold_Cyan "\033[1;36m"
 #define Reset "\033[0m"
 #define ResetColor() printf("\033[0m")
+#define MEM_LIMIT_32MB struct rlimit r1 = {33554432, 33554432}
 
 void printOutOfRangeError();
 void printMemNotAvailable();
