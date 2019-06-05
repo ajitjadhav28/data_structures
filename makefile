@@ -42,5 +42,7 @@ $(BIN)intDivisionIt.bin : ./iteration/intDivision.c $(mylibs)
 $(BIN)intDivisionRec.bin : ./iteration/intDivision.c $(mylibs)
 	$(CC) $(CFLAG) $^ -o $@
 
+$(shell mkdir -p bin)
+
 clean:
 	rm $(PROGS)
