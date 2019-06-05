@@ -3,7 +3,7 @@ CFLAG = -Wall
 BIN = ./bin/
 LIST = rmo.bin ltm.bin StackUsingArray.bin StackUsingLl.bin \
 		fibRec.bin fibIt.bin linearQueue.bin mulRec.bin mulIt.bin \
-		intDivisionIt.bin intDivisionRec.bin
+		intDivisionIt.bin intDivisionRec.bin circularQueue.bin
 PROGS = $(addprefix $(BIN), $(LIST))
 mylibs = mydef.h mylib.c
 
@@ -28,6 +28,9 @@ $(BIN)fibIt.bin : ./iteration/fibIt.c $(mylibs)
 	$(CC) $(CFLAG) $^ -o $@
 
 $(BIN)linearQueue.bin : linearQueue.c $(mylibs)
+	$(CC) $(CFLAG) $^ -o $@
+
+$(BIN)circularQueue.bin : circularQueue.c $(mylibs)
 	$(CC) $(CFLAG) $^ -o $@
 
 $(BIN)mulRec.bin : ./recursion/multiplication.c $(mylibs)

@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 #define ps(x) puts(x)
-#define pc(x) printf("%c", x)
-#define pi(x) printf("%d", x)
-#define pf(x) printf("%f", x)
+#define pc(x) printf("%c ", x)
+#define pi(x) printf("%d ", x)
+#define pf(x) printf("%f ", x)
 
 #define si(x) scanf("%d", &x)
 
