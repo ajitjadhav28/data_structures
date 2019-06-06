@@ -1,3 +1,7 @@
+// Author: Ajit J.
+// Subject: Data Structures
+// Desc: Array circular queue
+
 #include "mydef.h"
 #define N 5
 

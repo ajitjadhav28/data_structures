@@ -1,3 +1,7 @@
+// Author: Ajit J.
+// Subject: Data Structures
+// Desc: Implimentation of linear queue using array.
+
 #include "mydef.h"
 #define N 5
 
