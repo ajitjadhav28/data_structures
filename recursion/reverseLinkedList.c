@@ -40,7 +40,7 @@ struct Node * createLinkedList(unsigned int length)
     return length > 0 ? head : NULL;
 }
 
-// Reverse linked list recursively
+// Reverse linked list recursively(Non-tail recursion)
 void reverseLl(struct Node *p, struct Node *q, struct Node **newHead)
 {
     if(!q->next)
@@ -70,9 +70,14 @@ void freeLl(struct Node *head)
 {
     struct Node *p = head;
     while(head) {
-        p = head;
-        head = head->next;
-        free(p);
+        /**
+         * Just for FUN (comma operator) !
+         * Original flow :
+         * p = head;
+         * free(p);
+         * head = head->next();
+         */
+        head = ((p = head), free(p), head->next);
     }
 }
 
