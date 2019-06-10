@@ -4,8 +4,10 @@ BIN = ./bin/
 LIST = rmo.bin ltm.bin StackUsingArray.bin StackUsingLl.bin \
 		fibRec.bin fibIt.bin linearQueue.bin mulRec.bin mulIt.bin \
 		intDivisionIt.bin intDivisionRec.bin circularQueue.bin \
-		arrayTraversal.bin reverseLinkedList.bin
+		arrayTraversal.bin reverseLinkedList.bin factorialRec.bin \
+		arrayOperations.bin
 PROGS = $(addprefix $(BIN), $(LIST))
+COMPL = $(CC) $(CFLAG) $^ -o $@
 mylibs = mydef.h mylib.c
 
 all: $(PROGS)
@@ -51,6 +53,12 @@ $(BIN)arrayTraversal.bin : ./recursion/arrayTraversal.c $(mylibs)
 
 $(BIN)reverseLinkedList.bin : ./recursion/reverseLinkedList.c $(mylibs)
 	$(CC) $(CFLAG) $^ -o $@
+
+$(BIN)factorialRec.bin : ./recursion/factorial.c $(mylibs)
+	$(COMPL)
+
+$(BIN)arrayOperations.bin : ./recursion/arrayOperations.c $(mylibs)
+	$(COMPL)
 
 $(shell mkdir -p bin)
 
