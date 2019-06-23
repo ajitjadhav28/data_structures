@@ -1,13 +1,23 @@
-// Author: Ajit Jadhav
-// Subject: Data Structures
-// Date: 09-06-2019 16:51
-// Desc: Finding factorial recursively
+/**
+ * @file factorial.c
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief Finding factorial recursively
+ * @date 09-06-2019
+ */
 
 #include "../mydef.h"
 #include <sys/resource.h>
 
 MEM_LIMIT_32MB;
 
+/**
+ * @brief Recursive defination of factorial
+ * 
+ * @param n
+ *  Integer number to find factorial
+ * @return long long unsigned int 
+ *  Factorial of n
+ */
 long long unsigned int factorial(unsigned int n)
 {
     if(n == 0) return 1;
@@ -16,8 +26,7 @@ long long unsigned int factorial(unsigned int n)
 
 int main(int argc, char const *argv[])
 {
-    int i = 0;
-    /* code */
+    int i = 0; 
     setrlimit(RLIMIT_AS, &r1);
     if(argc == 1) {
         ps("Enter number to calculate factorial.");
