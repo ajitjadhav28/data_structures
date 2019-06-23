@@ -65,5 +65,9 @@ $(BIN)binarySearchTree.bin : bst.c bTree.c $(mylibs)
 
 $(shell mkdir -p bin)
 
+docs:
+	@doxygen 
+	@open ./docs/html/index.html
+
 clean:
-	rm $(PROGS)
+	rm -rf $(PROGS) ./docs
