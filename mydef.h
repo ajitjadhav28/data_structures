@@ -1,3 +1,9 @@
+/**
+ * @file mydef.h
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief Collection of functions and macros which are required multiple times 
+ * @date 2019-06-23
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,10 +28,26 @@
 #define Bold_Cyan "\033[1;36m"
 #define Reset "\033[0m"
 #define ResetColor() printf("\033[0m")
+
+/**
+ * @brief Max memory limit 32MB
+ * 
+ */
 #define MEM_LIMIT_32MB struct rlimit r1 = {33554432, 33554432}
 
+typedef enum bool{TRUE=1, FALSE=0}bool;
+
+/**
+ * @brief Prints out of range error on stderr
+ * 
+ */
 void printOutOfRangeError();
+/**
+ * @brief Prints memory not available error on stderr
+ * 
+ */
 void printMemNotAvailable();
+
 void printOverflowError(char *);
 void printUnderflowError(char *);
 void printError(char *);
