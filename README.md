@@ -9,5 +9,8 @@ Programs from Data structures subject.
 #### Build binaries
 `make`
 
-#### Clean bins
+### Build Docs (Doxygen required)
+`make docs`
+
+#### Clean bins &docs
 `make clean`
