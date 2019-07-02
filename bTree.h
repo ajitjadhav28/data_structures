@@ -25,3 +25,5 @@ short hasNoChild(Node *);
 int countNodes(Node *);
 int depthOfTree(Node *);
 int getLeafNodeCount(Node *);
+Node * searchNode(int, Node *);
+Node * nthInorderSuccessor(Node *, const Node *, const unsigned int);

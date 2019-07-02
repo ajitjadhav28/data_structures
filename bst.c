@@ -2,7 +2,7 @@
  * @file bst.c
  * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
  * @brief Implementation of binary search tree
- * @date 2019-06-23 
+ * @date 2019-06-23
  */
 #include "bTree.h"
 #include<sys/resource.h>
@@ -31,5 +31,6 @@ int main(int argc, char const *argv[])
     printf("\nTotal no of nodes: %d\n", countNodes(root));
     printf("Depth of a Tree: %d\n", depthOfTree(root));
     printf("Leaf nodes: %d\n", getLeafNodeCount(root));
+    printf("6th inorder successor of 3 is %d", nthInorderSuccessor(root, searchNode(3, root), 6)->data);
     return 0;
 }
