@@ -27,3 +27,6 @@ int depthOfTree(Node *);
 int getLeafNodeCount(Node *);
 Node * searchNode(int, Node *);
 Node * nthInorderSuccessor(Node *, const Node *, const unsigned int);
+Node * getParent(Node *, Node *);
+Node * deleteNode(Node *, Node *);
+void updateParentPointers(Node *, Node *, Node *);

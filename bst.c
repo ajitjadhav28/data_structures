@@ -31,6 +31,10 @@ int main(int argc, char const *argv[])
     printf("\nTotal no of nodes: %d\n", countNodes(root));
     printf("Depth of a Tree: %d\n", depthOfTree(root));
     printf("Leaf nodes: %d\n", getLeafNodeCount(root));
-    printf("6th inorder successor of 3 is %d", nthInorderSuccessor(root, searchNode(3, root), 6)->data);
+    printf("6th inorder successor of 3 is %d\n", nthInorderSuccessor(root, searchNode(3, root), 6)->data);
+    printf("Parent of 5 is %d\n", getParent(root, searchNode(5, root))->data);
+    deleteNode(root, searchNode(6, root));
+    ps("Inorder traversal: ");
+    inorderTraversal(root);
     return 0;
 }
