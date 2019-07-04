@@ -18,6 +18,8 @@ typedef struct Node
 Node * getNode(int, Node *, Node *);
 void insertBSTNode(int, Node *);
 void inorderTraversal(Node *);
+void preorderTraversal(Node *);
+void postorderTraversal(Node *);
 short hasOnlyLeftChild(Node *);
 short hasOnlyRightChild(Node *);
 short hasBothChilds(Node *);
@@ -30,3 +32,4 @@ Node * nthInorderSuccessor(Node *, const Node *, const unsigned int);
 Node * getParent(Node *, Node *);
 Node * deleteNode(Node *, Node *);
 void updateParentPointers(Node *, Node *, Node *);
+void deleteTree(Node *);

@@ -62,6 +62,32 @@ void inorderTraversal(Node *root)
 }
 
 /**
+ * @brief Preorder traversal of tree from root
+ * 
+ * @param root root of a tree
+ */
+void preorderTraversal(Node *root)
+{
+    if(!root) return;
+    pi(root->data);
+    preorderTraversal(root->left);
+    preorderTraversal(root->right);
+}
+
+/**
+ * @brief Postorder traversal of tree
+ * 
+ * @param root root of a tree
+ */
+void postorderTraversal(Node *root)
+{
+    if(!root) return;
+    postorderTraversal(root->left);
+    postorderTraversal(root->right);
+    pi(root->data);
+}
+
+/**
  * @brief returns **n**th successor of node **node** in tree.
  *
  * @param root
@@ -272,4 +298,17 @@ Node * deleteNode(Node *root, Node *node)
         deleteNode(root, tmp);
     }
     return NULL;
+}
+
+/**
+ * @brief Remove tree from memory
+ * 
+ * @param root root of a tree
+ */
+void deleteTree(Node *root)
+{
+    if(!root) return;
+    deleteTree(root->left);
+    deleteTree(root->right);
+    if(root) free(root);
 }
