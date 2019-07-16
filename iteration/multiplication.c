@@ -1,13 +1,22 @@
-// Author: Ajit J.
-// Subject: Data Structures
-// Date: 05/06/2019
+/**
+ * @file multiplication.c
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief Multiplication by addition
+ * @date 05/06/2019
+ * @subject Data Structures
+ * 
+ */
 
 #include "../mydef.h"
-#include <sys/resource.h>
 #include <ctype.h>
 
-MEM_LIMIT_32MB;
-
+/**
+ * @brief mutiplication by iterative addition
+ * 
+ * @param a Number for multiplication
+ * @param b Number for multiplication
+ * @return long long int multiplication (a*b)
+ */
 long long int mul(int a, int b)
 {
 	long long int m = 0;
@@ -37,7 +46,6 @@ long long int mul(int a, int b)
 int main(int argc, char *argv[])
 {	
 	int a=0, b=0;
-	setrlimit(RLIMIT_AS, &r1);
 	if(argc == 1){
         printf("Enter two number to calculate multiplication Ex.-3,2:\n");
         scanf("%d,%d", &a, &b);

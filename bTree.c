@@ -13,9 +13,10 @@
  * @param data Data to insert
  * @param lp left pointer
  * @param rp right pointer
+ * @param pp parent pointer
  * @return Node*
  */
-Node * getNode(int data, Node *lp, Node *rp)
+Node * getNode(int data, Node *lp, Node *rp, Node *pp)
 {
     Node *p = NULL;
     p = (Node *) malloc(sizeof(Node));
@@ -27,6 +28,7 @@ Node * getNode(int data, Node *lp, Node *rp)
     p->data = data;
     p->left = lp;
     p->right = rp;
+    p->parent = pp;
     return p;
 }
 
@@ -35,16 +37,25 @@ Node * getNode(int data, Node *lp, Node *rp)
  *
  * @param data _Data to be inserted in new node_
  * @param root _Root of tree_
+ * @param r Pointer to root pointer.
  */
-void insertBSTNode(int data, Node *root)
+void insertBSTNode(int data, Node *root, Node **r)
 {
     if(data <= root->data)
     {
-        if(root->left) insertBSTNode(data, root->left);
-        else root->left = getNode(data, NULL, NULL);
+        if(root->left) insertBSTNode(data, root->left, r);
+        else {
+            root->left = getNode(data, NULL, NULL, root);
+            // pi(data);ps("Inserted");
+            balanceTree(r, root->left);
+        }
     } else {
-        if(root->right) insertBSTNode(data, root->right);
-        else root->right = getNode(data, NULL, NULL);
+        if(root->right) insertBSTNode(data, root->right, r);
+        else {
+            root->right = getNode(data, NULL, NULL, root);
+            // pi(data);ps("Inserted");
+            balanceTree(r, root->right);
+        }
     }
 }
 
@@ -57,13 +68,14 @@ void inorderTraversal(Node *root)
 {
     if(!root) return;
     inorderTraversal(root->left);
-    pi(root->data);
+    printf("%d ", root->data);
+    // pi(root->data);
     inorderTraversal(root->right);
 }
 
 /**
  * @brief Preorder traversal of tree from root
- * 
+ *
  * @param root root of a tree
  */
 void preorderTraversal(Node *root)
@@ -76,7 +88,7 @@ void preorderTraversal(Node *root)
 
 /**
  * @brief Postorder traversal of tree
- * 
+ *
  * @param root root of a tree
  */
 void postorderTraversal(Node *root)
@@ -159,6 +171,7 @@ short hasNoChild(Node *root)
 /**
  * @brief Count the number of nodes in given binary tree recursively
  * @param Node *root Root of tree
+ * @return int count
  */
 int countNodes(Node *root)
 {
@@ -217,33 +230,44 @@ Node * searchNode(int data, Node *root)
 }
 
 /**
- * @brief Get the Parent node of **node**
- * 
+ * @brief Get the Parent node of **node** without using parent pointer
+ *
  * @param root root of tree
- * @param node 
- * @return Node* 
+ * @param node
+ * @return Node*
  */
-Node * getParent(Node *root, Node *node)
+Node * getParentRec(Node *root, Node *node)
 {
     if(!root) return NULL;
     if((root->left == node) || (root->right == node))
         return root;
-    node->data <= root->data ?
-        getParent(root->left, node):
-        getParent(root->right, node);
+    if(node->data <= root->data)
+        getParentRec(root->left, node);
+    else getParentRec(root->right, node);
+}
+
+/**
+ * @brief Get the Parent node if exists
+ *
+ * @param node
+ * @return Node*
+ */
+Node * getParent(Node *node)
+{
+    return node ? node->parent : NULL;
 }
 
 /**
  * @brief Update left and right pointers of parent of node **node**
  *  with value **val**
- * 
+ *
  * @param root root of tree
- * @param node 
- * @param val 
+ * @param node
+ * @param val
  */
 void updateParentPointers(Node *root, Node *node, Node *val)
 {
-    Node *tmp = getParent(root, node);
+    Node *tmp = getParent(node);
     if(!tmp) {
         printError("Parent of given node not found!");
         exit(1);
@@ -257,7 +281,7 @@ void updateParentPointers(Node *root, Node *node, Node *val)
 /**
  * @brief Delete node from tree.
  *  if root is deleted then returns new root
- * 
+ *
  * @param root root of tree
  * @param node node to delete
  * @return Node * returns new root if root deleted
@@ -302,7 +326,7 @@ Node * deleteNode(Node *root, Node *node)
 
 /**
  * @brief Remove tree from memory
- * 
+ *
  * @param root root of a tree
  */
 void deleteTree(Node *root)
@@ -311,4 +335,251 @@ void deleteTree(Node *root)
     deleteTree(root->left);
     deleteTree(root->right);
     if(root) free(root);
+}
+
+/**
+ * @brief Return 1 if **node** is left child of parent else 0
+ *
+ * @param node
+ * @return short
+ */
+short isLeftChild(Node *node)
+{
+    return node->parent->left == node;
+}
+
+/**
+ * @brief Apply LL rotation
+ *
+ * @param node imbalanced node
+ * @return Node* new root
+ */
+Node * llRotation(Node *node)
+{
+    Node *p = node->left;
+    //printf(" Data at pointer p : right child=%d\n", p->right->data);
+    p->parent = node->parent;
+    node->left = p->right;
+    p->right = node;
+    node->parent = p;
+    if(node->left)
+        node->left->parent = node;
+    return p;
+}
+
+/**
+ * @brief Apply RR Rotation
+ *
+ * @param node imbalanced node
+ * @return Node* new root
+ */
+Node * rrRotation(Node *node)
+{
+    Node *p = node->right;
+    p->parent = node->parent;
+    node->right = p->left;
+    p->left = node;
+    node->parent = p;
+    if(node->right)
+        node->right->parent = node;
+    return p;
+}
+
+/**
+ * @brief Apply LR rotation
+ *
+ * @param node imbalanced node
+ * @return Node* new root
+ */
+Node * lrRotation(Node *node)
+{
+    Node *nr = getNode(node->left->right->data, node->left, node, NULL);
+    Node *p = node->left->right;
+    node->left->parent = node->parent = nr;
+    node->left = p->right;
+    nr->left->right = p->left;
+    free(p);
+    if(nr->right->left)
+        nr->right->left->parent = nr->right;
+    if(nr->left->right)
+        nr->left->right->parent = nr->left;
+    return nr;
+}
+
+/**
+ * @brief Apply RL Rotation
+ *
+ * @param node imbalanced node
+ * @return Node* new root
+ */
+Node * rlRotation(Node *node)
+{
+    Node *nr = getNode(node->right->left->data, node, node->right, NULL);
+    Node *p = node->right->left;
+    node->right->parent = nr;
+    node->parent = nr;
+    node->right = p->left;
+    nr->right->left = p->right;
+    free(p);
+    if(nr->right->left)
+        nr->right->left->parent = nr->right;
+    if(nr->left->right)
+        nr->left->right->parent = nr->left;
+    return  nr;
+}
+
+/**
+ * @brief Update balance factors of entire tree
+ *
+ * @param root root of tree
+ */
+void updateBalanceFactors(Node *root)
+{
+    if(!root) return;
+    root->balanceFactor = depthOfTree(root->left) - depthOfTree(root->right);
+    updateBalanceFactors(root->left);
+    updateBalanceFactors(root->right);
+}
+
+/**
+ * @brief Get the Balance Factor of a node
+ *
+ * @param node node
+ * @return int balance factor
+ */
+int getBalanceFactor(Node *node)
+{
+    if(!node) { printError("NULL pointer exception in getBalanceFactor()!"); exit(1); }
+    if(!node->right && !node->left) return 0;
+    return depthOfTree(node->left) - depthOfTree(node->right);
+}
+
+/**
+ * @brief Detect which type of imbalance occured and apply rotation accordingly
+ *
+ * @param root root of the tree
+ * @param node imbalanced node
+ */
+void applyRotation(Node **root, Node *node)
+{
+    Node *p = node->parent;
+    if(node->balanceFactor == 2 && node->left->balanceFactor >= 0 ){
+        // printf(Yellow"Applying ll rotation at Node[%d]\n"Reset, node->data);
+        if(!p){
+            *root = llRotation(node);
+            (*root)->parent = NULL;
+        }
+        else{
+            if(isLeftChild(node)) {
+                p->left = llRotation(node);
+                p->left->parent = p;
+            }
+            else if(!isLeftChild(node)) {
+                p->right = llRotation(node);
+                p->right->parent = p;
+            }
+        }
+    }
+    else if(node->balanceFactor == -2 && node->right->balanceFactor <= 0 ){
+        // printf(Yellow"Applying rr rotation at Node[%d]\n"Reset, node->data);
+        if(!p){
+            *root = rrRotation(node);
+            (*root)->parent = NULL;
+        }
+        else{
+            if(isLeftChild(node)) {
+                p->left = rrRotation(node);
+                p->left->parent = p;
+            }
+            else if(!isLeftChild(node)) {
+                p->right = rrRotation(node);
+                p->right->parent = p;
+            }
+        }
+    }
+    else if(node->balanceFactor == -2 && node->right->balanceFactor == 1){
+        // printf(Yellow"Applying rl rotation at Node[%d]\n"Reset, node->data);
+        if(!p){
+            *root = rlRotation(node);
+            (*root)->parent = NULL;
+        }
+        else{
+            if(isLeftChild(node)) {
+                p->left = rlRotation(node);
+                p->left->parent = p;
+            }
+            else if(!isLeftChild(node)) {
+                p->right = rlRotation(node);
+                p->right->parent = p;
+            }
+        }
+    }
+    else if(node->balanceFactor == 2 && node->left->balanceFactor == -1){
+        // printf(Yellow"Applying lr rotation at Node[%d]\n"Reset, node->data);
+        if(!p){
+            *root = lrRotation(node);
+            (*root)->parent = NULL;
+        }
+        else{
+            if(isLeftChild(node)){
+                p->left = lrRotation(node);
+                p->left->parent = p;
+            }
+            else if(!isLeftChild(node)) {
+                p->right = lrRotation(node);
+                p->right->parent = p;
+            }
+        }
+    }
+    // ps("Inorder Traversal: ");
+    // inorderTraversal(*root);
+}
+
+/**
+ * @brief Detect imbalance and passes imbalanced node to applyRotation()
+ *
+ * @param root Root of the tree
+ * @param new_node newly inserted node
+ */
+void balanceTree(Node **root, Node *new_node)
+{
+    if(!root || !new_node) return;
+    while(new_node)
+    {
+        new_node->balanceFactor = getBalanceFactor(new_node);
+        // printf("{%d}Node[%d](%d){%d}_____Balance_Factor[%d]\n", new_node->left ? new_node->left->data : 0, new_node->data, new_node->parent ? new_node->parent->data: 0, new_node->right ? new_node->right->data : 0, new_node->balanceFactor);
+            if(abs(new_node->balanceFactor) >= 2)
+        {
+            // printf(Red "Imbalance detected\n" Reset);
+            applyRotation(root, new_node);
+            break;
+        }
+        new_node = new_node->parent;
+    }
+}
+
+/**
+ * @brief Get the Min data in tree
+ *
+ * @param root
+ * @return int
+ */
+int getMin(Node *root)
+{
+    if(!root->left)
+        return root->data;
+    return getMin(root->left);
+}
+
+/**
+ * @brief Get the Max data in tree
+ *
+ * @param root
+ * @return int
+ */
+int getMax(Node *root)
+{
+    if(!root->right)
+        return root->data;
+    return getMax(root->right);
 }

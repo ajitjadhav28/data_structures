@@ -35,6 +35,12 @@
  */
 #define MEM_LIMIT_32MB struct rlimit r1 = {33554432, 33554432}
 
+/**
+ * @brief Max memory limit 128MB
+ * 
+ */
+#define MEM_LIMIT_128MB struct rlimit r1 = {134217728, 134217728}
+
 typedef enum bool{TRUE=1, FALSE=0}bool;
 
 /**

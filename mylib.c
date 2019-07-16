@@ -1,10 +1,18 @@
 #include "mydef.h"
 
+/**
+ * @brief print Out Of Range Error on stderr
+ * 
+ */
 void printOutOfRangeError()
 {
     fprintf(stderr, Bold_Red "[ERROR]: " Red "row or column index out of range.\n");
 }
 
+/**
+ * @brief Print memory not available on stderr.
+ * 
+ */
 void printMemNotAvailable()
 {
     fprintf(stderr, Bold_Red "[ERROR]: " Red "Memory not available.\n");

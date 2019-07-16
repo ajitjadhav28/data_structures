@@ -1,12 +1,22 @@
-// Author: Ajit J.
-// Subject: Data Structures
-// Desc: Array circular queue
+/**
+ * @file circularQueue.c
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief Circular queue using array
+ * @date 04-07-2019
+ * @subject Data Structures
+ * 
+ */
 
 #include "mydef.h"
 #define N 5
 
 int q[N], fp=-1, rp=-1;
 
+/**
+ * @brief Print current queue elements
+ * 
+ * @param p poiner to q
+ */
 void printQueue(int *p)
 {
     int i = 0;
@@ -14,6 +24,11 @@ void printQueue(int *p)
     ps("");
 }
 
+/**
+ * @brief Insert **item** in queue.
+ * 
+ * @param item 
+ */
 void enqueue(int item)
 {
     if((rp + 1) % N == fp){
@@ -26,6 +41,11 @@ void enqueue(int item)
     if(fp == -1) fp++;
 }
 
+/**
+ * @brief Remove item from queue.
+ * 
+ * @return int 
+ */
 int dequeue()
 {
     int item;

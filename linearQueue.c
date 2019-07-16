@@ -1,12 +1,22 @@
-// Author: Ajit J.
-// Subject: Data Structures
-// Desc: Implimentation of linear queue using array.
+/**
+ * @file linearQueue.c
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief Implimentation of linear queue using array.
+ * @date 04-07-2019
+ * @subject Data Structures
+ * 
+ */
 
 #include "mydef.h"
 #define N 5
 
 int q[N], fp=-1, rp=-1;
 
+/**
+ * @brief Insert element in queue
+ * 
+ * @param item 
+ */
 void enqueue(int item)
 {
     if(rp == N-1){
@@ -18,6 +28,11 @@ void enqueue(int item)
         fp++;
 }
 
+/**
+ * @brief Pop element from queue
+ * 
+ * @return int 
+ */
 int dequeue()
 {
     int item;

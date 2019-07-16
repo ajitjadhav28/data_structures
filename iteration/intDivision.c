@@ -1,13 +1,21 @@
-// Author: Ajit J.
-// Subject: Data Structures
-// Date: 05/06/2019
+/**
+ * @file intDivision.c
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief Interger division by substraction iteratively
+ * @subject Data Structures
+ * @date 05/06/2019
+ */
 
 #include "../mydef.h"
-#include <sys/resource.h>
 #include <ctype.h>
 
-MEM_LIMIT_32MB;
-
+/**
+ * @brief perform integer division a/b
+ * 
+ * @param a Divident
+ * @param b Divisor
+ * @return long int Division(a/b)
+ */
 long int divide(int a, int b)
 {
 	unsigned long int n = 0;
@@ -40,7 +48,6 @@ long int divide(int a, int b)
 int main(int argc, char *argv[])
 {	
 	int a=0, b=0;
-	setrlimit(RLIMIT_AS, &r1);
 	if(argc == 1){
         printf("Enter two number to calculate multiplication Ex.-3,2:\n");
         scanf("%d,%d", &a, &b);

@@ -1,13 +1,22 @@
-// Author: Ajit J.
-// Subject: Data Structures
-// Date: 06/06/2019
-// Desc: Array traversal using recursion
-
+/**
+ * @file arrayTraversal.c
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief Array traversal using recursion 
+ * @date 06/06/2019
+ * @subject Data Structures
+ * 
+ */
 #include "../mydef.h"
 #define N 5
 
 int arr[N] = {1,2,3,4,5};
 
+/**
+ * @brief Traverse array in forward direction
+ * 
+ * @param arr array pointer
+ * @param size size of array
+ */
 void traverseForward(int *arr, int size)
 {
     if(size == 1){
@@ -19,6 +28,12 @@ void traverseForward(int *arr, int size)
     return traverseForward(++arr, --size);
 }
 
+/**
+ * @brief Traverse array in reverse direction
+ * 
+ * @param arr array pointer
+ * @param size size of array 
+ */
 void traverseReverse(int *arr, int size)
 {
     if(size == 1){
@@ -30,6 +45,12 @@ void traverseReverse(int *arr, int size)
     }
 }
 
+/**
+ * @brief Traverse array in reverse direction (another method)
+ * 
+ * @param arr array pointer
+ * @param size size of array 
+ */
 void traverseRevAlt(int *arr, int size)
 {
     if(size == 1){

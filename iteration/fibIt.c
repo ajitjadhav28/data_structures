@@ -1,31 +1,37 @@
-// Author: Ajit J.
-// Subject: Data Structures
+/**
+ * @file fibIt.c    
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief Print fibonacci sequence
+ * @date 04-07-2019
+ * @subject Data Structures
+ * 
+ */
 
 #include "../mydef.h"
-#include <sys/resource.h>
 #include <ctype.h>
 
-// Memory Limit 32MB
-struct rlimit r1 = {33554432, 33554432};
-
-long int fib(int num)
+/**
+ * @brief Prints fibonacci sequence of length **num**
+ * 
+ * @param num length of fibonacci sequence
+ */
+void fib(unsigned int num)
 {
-    long int sum = 0, a = 0, b = 1;
-    int i;
-
-    for(i=2; i <= num; i++)
+    unsigned int a = 0, b = 1;
+    pi(a); pi(b);
+    for(; num > 2; num--)
     {
-        sum = a + b;
-        a = b;
-        b = sum;    
+        a += b;
+        pi(a);
+        a += b;
+        b = a - b;
+        a = a - b;
     }
-    return sum;
 }
 
 int main(int argc, char const *argv[])
 {
-    int num = 0;
-    setrlimit(RLIMIT_AS, &r1);
+    unsigned int num = 0;
     if(argc == 1){
         printf("Enter number to find fibonacci:\n");
         scanf("%d", &num);
@@ -37,6 +43,7 @@ int main(int argc, char const *argv[])
         }
         num = atoi(argv[1]);
     }
-    printf("Fibonacci for number %d is: %ld\n", num, fib(num));
+    printf("Fibonacci sequence of length %d:\n", num);
+    fib(num); ps("");
     return 0;
 }

@@ -1,10 +1,22 @@
-// Author: Ajit J.
-// Subject: Data Structures
-// Description: Storing lower trangular matrix in 1D array in Row Major Order and accessing it
+/**
+ * @file lowerTrangularMatrix.c
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief Storing lower trangular matrix in 
+ *      1D array in Row Major Order and accessing it
+ * @date 04-07-2019
+ * @subject Data Structures 
+ * 
+ */
 
 #include "mydef.h"
 #define N 3
 
+/**
+ * @brief Print array
+ * 
+ * @param a array pointer
+ * @param s array size
+ */
 void printArr(int *a, int s)
 {
     int i, j=0, k=0;
@@ -18,6 +30,14 @@ void printArr(int *a, int s)
     }    
 }
 
+/**
+ * @brief Get the value located at **arr[row][col]**
+ * 
+ * @param arr array pointer
+ * @param row 
+ * @param col 
+ * @return int value
+ */
 int getValue(int *arr, int row, int col)
 {
     if((row <= N) && (col <= N) && (row>0) && (col>0))    // 0 < row/col <= N
