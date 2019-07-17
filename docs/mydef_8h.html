@@ -80,6 +80,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top"><a id="ad72dbcf6d0153db1b8d8a58001feed83"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEBUG</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7377cc956f5c81538f0fbf0a0492a539"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mydef_8h.html#a7377cc956f5c81538f0fbf0a0492a539">debug_print</a>(fmt, ...)&#160;&#160;&#160;do { if(DEBUG) fprintf(stderr, fmt, __VA_ARGS__); } while(0);</td></tr>
+<tr class="memdesc:a7377cc956f5c81538f0fbf0a0492a539"><td class="mdescLeft">&#160;</td><td class="mdescRight">macro for debug prints  <a href="mydef_8h.html#a7377cc956f5c81538f0fbf0a0492a539">More...</a><br /></td></tr>
+<tr class="separator:a7377cc956f5c81538f0fbf0a0492a539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae320c29b526039fbf085fc7337bb2265"><td class="memItemLeft" align="right" valign="top"><a id="ae320c29b526039fbf085fc7337bb2265"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>ps</b>(x)&#160;&#160;&#160;puts(x)</td></tr>
 <tr class="separator:ae320c29b526039fbf085fc7337bb2265"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,6 +149,12 @@ Macros</h2></td></tr>
 <tr class="memitem:acef70a83c633daee7169286494f894a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mydef_8h.html#acef70a83c633daee7169286494f894a1">MEM_LIMIT_128MB</a>&#160;&#160;&#160;struct rlimit r1 = {134217728, 134217728}</td></tr>
 <tr class="memdesc:acef70a83c633daee7169286494f894a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max memory limit 128MB.  <a href="mydef_8h.html#acef70a83c633daee7169286494f894a1">More...</a><br /></td></tr>
 <tr class="separator:acef70a83c633daee7169286494f894a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3bb00327d756aed56b2b137134467fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mydef_8h.html#af3bb00327d756aed56b2b137134467fc">MEM_LIMIT_512MB</a>&#160;&#160;&#160;struct rlimit r1 = {536870912, 536870912}</td></tr>
+<tr class="memdesc:af3bb00327d756aed56b2b137134467fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max memory limit 512MB.  <a href="mydef_8h.html#af3bb00327d756aed56b2b137134467fc">More...</a><br /></td></tr>
+<tr class="separator:af3bb00327d756aed56b2b137134467fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad94c21f36844b78087c901db60398518"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mydef_8h.html#ad94c21f36844b78087c901db60398518">MEM_LIMIT_1GB</a>&#160;&#160;&#160;struct rlimit r1 = {1073741824, 1073741824}</td></tr>
+<tr class="memdesc:ad94c21f36844b78087c901db60398518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max memory limit 1GB.  <a href="mydef_8h.html#ad94c21f36844b78087c901db60398518">More...</a><br /></td></tr>
+<tr class="separator:ad94c21f36844b78087c901db60398518"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -180,6 +192,36 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Ajit Jadhav (<a href="#" onclick="location.href='mai'+'lto:'+'mr.'+'aj'+'itj'+'ad'+'hav'+'@g'+'mai'+'l.'+'com'; return false;">mr.aj<span style="display: none;">.nosp@m.</span>itja<span style="display: none;">.nosp@m.</span>dhav@<span style="display: none;">.nosp@m.</span>gmai<span style="display: none;">.nosp@m.</span>l.com</a>) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2019-06-23 </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a7377cc956f5c81538f0fbf0a0492a539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7377cc956f5c81538f0fbf0a0492a539">&#9670;&nbsp;</a></span>debug_print</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define debug_print</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fmt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;do { if(DEBUG) fprintf(stderr, fmt, __VA_ARGS__); } while(0);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>macro for debug prints </p>
+
+</div>
+</div>
 <a id="acef70a83c633daee7169286494f894a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acef70a83c633daee7169286494f894a1">&#9670;&nbsp;</a></span>MEM_LIMIT_128MB</h2>
 
@@ -196,6 +238,22 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad94c21f36844b78087c901db60398518"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad94c21f36844b78087c901db60398518">&#9670;&nbsp;</a></span>MEM_LIMIT_1GB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEM_LIMIT_1GB&#160;&#160;&#160;struct rlimit r1 = {1073741824, 1073741824}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Max memory limit 1GB. </p>
+
+</div>
+</div>
 <a id="a4caffa0bf4041f2f349eb6acae2d9d2e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4caffa0bf4041f2f349eb6acae2d9d2e">&#9670;&nbsp;</a></span>MEM_LIMIT_32MB</h2>
 
@@ -209,6 +267,22 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Max memory limit 32MB. </p>
+
+</div>
+</div>
+<a id="af3bb00327d756aed56b2b137134467fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3bb00327d756aed56b2b137134467fc">&#9670;&nbsp;</a></span>MEM_LIMIT_512MB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEM_LIMIT_512MB&#160;&#160;&#160;struct rlimit r1 = {536870912, 536870912}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Max memory limit 512MB. </p>
 
 </div>
 </div>
