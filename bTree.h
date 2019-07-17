@@ -7,7 +7,8 @@
  * @brief Node structure for binary tree
  * - int data : Data to be inserted 
  * - Node *left : left pointer of node
- * 
+ * - Node *right : right pointer of node
+ * - Node *parent : parent pointer of node
  */
 typedef struct Node
 {
@@ -31,9 +32,10 @@ Node * searchNode(int, Node *);
 Node * nthInorderSuccessor(Node *, const Node *, const unsigned int);
 Node * getParentRec(Node *, Node *);
 Node * getParent(Node *node);
-Node * deleteNode(Node *, Node *);
+void deleteNode(Node *root, Node *node, Node **r);
 void updateParentPointers(Node *, Node *, Node *);
 void deleteTree(Node *);
 void balanceTree(Node **root, Node *new_node);
 int getMin(Node *root);
 int getMax(Node *root);
+int widthOfTree(Node *root);

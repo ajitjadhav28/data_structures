@@ -8,6 +8,8 @@
 #include "bTree.h"
 #include<sys/resource.h>
 #include <time.h>
+#include <math.h>
+#include <assert.h>
 
 /**
  * @brief Calculates time in seconds
@@ -17,7 +19,7 @@
 /**
  * @brief RANDOM_RANGE for rand()
  */
-#define RANDOM_RANGE 99999
+#define RANDOM_RANGE 999999
 
 /**
  * @brief Random() macro to get random numbers below RANDOM_RANGE
@@ -47,6 +49,8 @@ int main(int argc, char const *argv[])
     insertBSTNode(5, root, &root);
     insertBSTNode(7, root, &root);
     insertBSTNode(10, root, &root);
+    debug_print("Deleting node: %d\n", 5);
+    deleteNode(root, searchNode(5, root), &root);
     insertBSTNode(11, root, &root);
     insertBSTNode(3, root, &root);
     insertBSTNode(1, root, &root);
@@ -60,14 +64,14 @@ int main(int argc, char const *argv[])
     preorderTraversal(root);
     ps("\npostorder traversal: ");
     postorderTraversal(root);
-    printf("\nTotal no of nodes: %d\n", countNodes(root));
-    printf("Depth of a Tree: %d\n", depthOfTree(root));
+    n = countNodes(root);
+    i = depthOfTree(root) - 1;
+    assert(1.44*log2(n) >= i);
+    printf("\nTotal no of nodes: %d\n", n);
+    printf("Depth of a Tree: %d\n", i);
+    printf("Width of a tree: %d\n", widthOfTree(root));
     printf("Leaf nodes: %d\n", getLeafNodeCount(root));
     printf("Minimum : %d\nMaximum : %d\n", getMin(root), getMax(root));
-    // ps("Deleting node 6:");
-    // deleteNode(root, searchNode(6, root));
-    // ps("Inorder traversal: ");
-    // inorderTraversal(root);
     deleteTree(root);
     printf( Bold_Cyan "\nSize of int : %ld\nSize of pointer : %ld\nSize of node : %ld\n" Reset, sizeof(int), sizeof(Node *), sizeof(Node));
     ps("\nEnter no of nodes to create tree with random data (enter 0 to exit): ");
@@ -78,14 +82,15 @@ int main(int argc, char const *argv[])
     printf("Time required to create 1 node : %f sec.\n", TimeInSec(start));
     start = clock();
     while(--n){
-        // scanf("%d", &i);
         insertBSTNode(Random(), root, &root);
     }
     printf("\nTime Required : %f sec.", TimeInSec(start));
-    printf("\nTotal no of nodes: %d\n", countNodes(root));
-    printf("Depth of a Tree: %d\n", depthOfTree(root));
-    // ps("Inorder traversal: ");
-    // inorderTraversal(root);
+    n = countNodes(root);
+    i = depthOfTree(root) - 1;
+    assert(1.44*log2(n) >= i-1);  // halt if height is more than worst case
+    printf("\nTotal no of nodes: %d\n", n);
+    printf("Depth of a Tree: %d\n", i);
+    printf("Width of a tree: %d\n", widthOfTree(root));
     for(n = 0; n < 3; n++){
         printf(Red "\n[TRY-%d] " Reset "Enter number to search in tree (0-%d): ", n, RANDOM_RANGE);
         scanf("%d", &i);

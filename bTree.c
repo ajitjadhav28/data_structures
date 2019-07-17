@@ -46,6 +46,7 @@ void insertBSTNode(int data, Node *root, Node **r)
         if(root->left) insertBSTNode(data, root->left, r);
         else {
             root->left = getNode(data, NULL, NULL, root);
+            debug_print("%d Inserted\n", data);
             // pi(data);ps("Inserted");
             balanceTree(r, root->left);
         }
@@ -53,6 +54,7 @@ void insertBSTNode(int data, Node *root, Node **r)
         if(root->right) insertBSTNode(data, root->right, r);
         else {
             root->right = getNode(data, NULL, NULL, root);
+            debug_print("%d Inserted\n", data);
             // pi(data);ps("Inserted");
             balanceTree(r, root->right);
         }
@@ -280,48 +282,52 @@ void updateParentPointers(Node *root, Node *node, Node *val)
 
 /**
  * @brief Delete node from tree.
- *  if root is deleted then returns new root
  *
  * @param root root of tree
  * @param node node to delete
- * @return Node * returns new root if root deleted
+ * @param r pointer to root pointer
  */
-Node * deleteNode(Node *root, Node *node)
+void deleteNode(Node *root, Node *node, Node **r)
 {
     Node *tmp;
-    if(!node || !root) return NULL;
+    if(!node || !root) return;
     if(hasNoChild(node)){
         updateParentPointers(root, node, NULL);
+        tmp = node->parent;
         free(node);
-        return NULL;
+        balanceTree(r, tmp);
     }
     if(hasOnlyLeftChild(node)){
         if(root != node) {
             updateParentPointers(root, node, node->left);
+            tmp = node->parent;
             free(node);
-            return NULL;
+            balanceTree(r, tmp);
+
         }
         tmp = root->left;
         free(root);
-        return tmp;
+        balanceTree(r, tmp);
     }
     if(hasOnlyRightChild(node)){
         if(root != node){
             updateParentPointers(root, node, node->right);
+            tmp = node->parent;
             free(node);
-            return NULL;
+            balanceTree(r, tmp);
+
         }
         tmp = root->right;
         free(root);
-        return tmp;
+        balanceTree(r, tmp);
     }
     if(hasBothChilds(node)){
         tmp = nthInorderSuccessor(root, node, 1);
         // instead of deleting node replacing data to minimize computation
         node->data = tmp->data;
-        deleteNode(root, tmp);
+        deleteNode(root, tmp, r);
+        balanceTree(r, tmp->parent);
     }
-    return NULL;
 }
 
 /**
@@ -464,7 +470,7 @@ void applyRotation(Node **root, Node *node)
 {
     Node *p = node->parent;
     if(node->balanceFactor == 2 && node->left->balanceFactor >= 0 ){
-        // printf(Yellow"Applying ll rotation at Node[%d]\n"Reset, node->data);
+        debug_print(Yellow"Applying ll rotation at Node[%d]\n"Reset, node->data);
         if(!p){
             *root = llRotation(node);
             (*root)->parent = NULL;
@@ -481,7 +487,7 @@ void applyRotation(Node **root, Node *node)
         }
     }
     else if(node->balanceFactor == -2 && node->right->balanceFactor <= 0 ){
-        // printf(Yellow"Applying rr rotation at Node[%d]\n"Reset, node->data);
+        debug_print(Yellow"Applying rr rotation at Node[%d]\n"Reset, node->data);
         if(!p){
             *root = rrRotation(node);
             (*root)->parent = NULL;
@@ -498,7 +504,7 @@ void applyRotation(Node **root, Node *node)
         }
     }
     else if(node->balanceFactor == -2 && node->right->balanceFactor == 1){
-        // printf(Yellow"Applying rl rotation at Node[%d]\n"Reset, node->data);
+        debug_print(Yellow"Applying rl rotation at Node[%d]\n"Reset, node->data);
         if(!p){
             *root = rlRotation(node);
             (*root)->parent = NULL;
@@ -515,7 +521,7 @@ void applyRotation(Node **root, Node *node)
         }
     }
     else if(node->balanceFactor == 2 && node->left->balanceFactor == -1){
-        // printf(Yellow"Applying lr rotation at Node[%d]\n"Reset, node->data);
+        debug_print(Yellow"Applying lr rotation at Node[%d]\n"Reset, node->data);
         if(!p){
             *root = lrRotation(node);
             (*root)->parent = NULL;
@@ -547,10 +553,10 @@ void balanceTree(Node **root, Node *new_node)
     while(new_node)
     {
         new_node->balanceFactor = getBalanceFactor(new_node);
-        // printf("{%d}Node[%d](%d){%d}_____Balance_Factor[%d]\n", new_node->left ? new_node->left->data : 0, new_node->data, new_node->parent ? new_node->parent->data: 0, new_node->right ? new_node->right->data : 0, new_node->balanceFactor);
+        debug_print("{%d}Node[%d](%d){%d}_____Balance_Factor[%d]\n", new_node->left ? new_node->left->data : 0, new_node->data, new_node->parent ? new_node->parent->data: 0, new_node->right ? new_node->right->data : 0, new_node->balanceFactor);
             if(abs(new_node->balanceFactor) >= 2)
         {
-            // printf(Red "Imbalance detected\n" Reset);
+            debug_print(Red "Imbalance detected\n"Reset, NULL);
             applyRotation(root, new_node);
             break;
         }
@@ -582,4 +588,16 @@ int getMax(Node *root)
     if(!root->right)
         return root->data;
     return getMax(root->right);
+}
+
+/**
+ * @brief Calculates width of a tree.
+ * 
+ * @param root Root of tree
+ * @return int Width of tree
+ */
+int widthOfTree(Node *root)
+{
+    if(!root) return -1;
+    return depthOfTree(root->left) + depthOfTree(root->right) + 1;
 }

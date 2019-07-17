@@ -7,6 +7,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define DEBUG 0
+
+/**
+ * @brief macro for debug prints
+ * 
+ */
+#define debug_print(fmt, ...) \
+    do { if(DEBUG) fprintf(stderr, fmt, __VA_ARGS__); } while(0);
+
 #define ps(x) puts(x)
 #define pc(x) printf("%c ", x)
 #define pi(x) printf("%d ", x)
@@ -40,6 +49,18 @@
  * 
  */
 #define MEM_LIMIT_128MB struct rlimit r1 = {134217728, 134217728}
+
+/**
+ * @brief Max memory limit 512MB
+ * 
+ */
+#define MEM_LIMIT_512MB struct rlimit r1 = {536870912, 536870912}
+
+/**
+ * @brief Max memory limit 1GB
+ * 
+ */
+#define MEM_LIMIT_1GB struct rlimit r1 = {1073741824, 1073741824}
 
 typedef enum bool{TRUE=1, FALSE=0}bool;
 

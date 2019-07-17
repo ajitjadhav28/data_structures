@@ -46,7 +46,7 @@ $(BIN)intDivisionIt.bin : ./iteration/intDivision.c $(mylibs)
 	$(CC) $(CFLAG) $^ -o $@
 
 $(BIN)intDivisionRec.bin : ./iteration/intDivision.c $(mylibs)
-	$(CC) $(CFLAG) $^ -o $@
+	$(CC) $(CFLAG) $^ -o $@ 
 
 $(BIN)arrayTraversal.bin : ./recursion/arrayTraversal.c $(mylibs)
 	$(CC) $(CFLAG) $^ -o $@
@@ -61,7 +61,7 @@ $(BIN)arrayOperations.bin : ./recursion/arrayOperations.c $(mylibs)
 	$(COMPL)
 
 $(BIN)binarySearchTree.bin : bst.c bTree.c $(mylibs)
-	$(COMPL)
+	$(COMPL) -lm 
 
 $(shell mkdir -p bin)
 
