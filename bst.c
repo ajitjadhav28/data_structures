@@ -87,7 +87,8 @@ int main(int argc, char const *argv[])
     printf("\nTime Required : %f sec.", TimeInSec(start));
     n = countNodes(root);
     i = depthOfTree(root) - 1;
-    assert(1.44*log2(n) >= i-1);  // halt if height is more than worst case
+    if(n > 1)
+        assert(1.44*log2(n) >= i-1);  // halt if height is more than worst case
     printf("\nTotal no of nodes: %d\n", n);
     printf("Depth of a Tree: %d\n", i);
     printf("Width of a tree: %d\n", widthOfTree(root));

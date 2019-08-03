@@ -28,9 +28,24 @@ typedef struct Student
     void (*p)(char *);
 } Student;
 
+void printStudent(Student s)
+{
+    s.p = hello;
+    s.p(s.name);
+}
+
+void printStudentRef(Student *s)
+{
+    s->p = hello;
+    s->p(s->name);
+}
+
 int main(int argc, char const *argv[])
 {
     Student s = {"ajit", 9, hello};
-    s.p(s.name);
+    // s.p(s.name);
+    printStudent(s);    // pass by value
+    // printStudentRef(&(Student *){"Uday", 10, NULL});
+    printStudentRef(&s); // pass by reference
     return 0;
 }

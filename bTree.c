@@ -1,7 +1,7 @@
  /**
  * @file bTree.c
  * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
- * @brief Collection of binary tree functions
+ * @brief Collection of binary tree (with height balancing) functions
  * @date 2019-06-23
  */
 
@@ -554,7 +554,7 @@ void balanceTree(Node **root, Node *new_node)
     {
         new_node->balanceFactor = getBalanceFactor(new_node);
         debug_print("{%d}Node[%d](%d){%d}_____Balance_Factor[%d]\n", new_node->left ? new_node->left->data : 0, new_node->data, new_node->parent ? new_node->parent->data: 0, new_node->right ? new_node->right->data : 0, new_node->balanceFactor);
-            if(abs(new_node->balanceFactor) >= 2)
+        if(abs(new_node->balanceFactor) >= 2)
         {
             debug_print(Red "Imbalance detected\n"Reset, NULL);
             applyRotation(root, new_node);
