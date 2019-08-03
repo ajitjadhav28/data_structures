@@ -8,11 +8,11 @@ LIST = rmo.bin ltm.bin StackUsingArray.bin StackUsingLl.bin \
 		arrayOperations.bin binarySearchTree.bin
 PROGS = $(addprefix $(BIN), $(LIST))
 COMPL = $(CC) $(CFLAG) $^ -o $@
-mylibs = mydef.h mylib.c
+mylibs = mylib.c
 
 all: $(PROGS)
 
-$(BIN)rmo.bin : rmo.c mydef.h
+$(BIN)rmo.bin : rmo.c 
 	$(CC) $(CFLAG) $^ -o $@
 
 $(BIN)ltm.bin : lowerTrangularMatrix.c $(mylibs)
