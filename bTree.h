@@ -3,6 +3,10 @@
     #include "mydef.h"
 #endif
 
+#include "stack.h"
+
+#define NODE_TYPE "B_TREE"
+
 /**
  * @brief Node structure for binary tree
  * - int data : Data to be inserted 
@@ -19,6 +23,7 @@ typedef struct Node
 Node * getNode(int, Node *lp, Node *rp, Node *pp);
 void insertBSTNode(int, Node *, Node **);
 void inorderTraversal(Node *);
+void inorderTraversalIt(Node *root);
 void preorderTraversal(Node *);
 void postorderTraversal(Node *);
 short hasOnlyLeftChild(Node *);

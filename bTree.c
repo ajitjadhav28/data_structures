@@ -76,6 +76,30 @@ void inorderTraversal(Node *root)
 }
 
 /**
+ * @brief Iterative inorder traversal using stack
+ * 
+ * @param root Root of tree
+ */
+void inorderTraversalIt(Node *root)
+{
+    stackNode *tos = NULL, *n = NULL;
+    if(root == NULL) return;
+    do {
+        while(root) {
+            tos = push((void *) root, NODE_TYPE, tos);
+            root = root->left;
+        }
+        if(!root && tos){
+            n = pop(&tos);
+            root = (Node *) n->data_ptr;
+            free(n);
+            printf("%d ", root->data);
+            root = root->right;
+        }
+    } while(tos || root);
+}
+
+/**
  * @brief Preorder traversal of tree from root
  *
  * @param root root of a tree

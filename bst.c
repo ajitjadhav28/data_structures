@@ -60,6 +60,8 @@ int main(int argc, char const *argv[])
     insertBSTNode(13, root, &root);
     ps("\nInorder traversal: ");
     inorderTraversal(root);
+    ps("\nIterative Inorder traversal: ");
+    inorderTraversalIt(root);
     ps("\npreorder traversal: ");
     preorderTraversal(root);
     ps("\npostorder traversal: ");
