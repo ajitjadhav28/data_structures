@@ -1,3 +1,12 @@
+/**
+ * @file stack.c
+ * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
+ * @brief General stack
+ * @date 05-08-2019
+ * @subject Data Structures
+ * 
+ */
+
 #include <stdio.h>
 #include "stack.h" 
 
@@ -71,6 +80,12 @@ stackNode * pop(stackNode **TOP)
     return n;
 }
 
+/**
+ * @brief Returns number of elements currently present in stack
+ * 
+ * @param TOP TOS pointer
+ * @return unsigned int no of elements
+ */
 unsigned int totalElementsInStack(stackNode *TOP)
 {
     if(!TOP) return 0;

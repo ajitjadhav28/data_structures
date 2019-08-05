@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['pop',['pop',['../stack_8c.html#a0d765bc7870d02a6dfe3ede5e4ca29fa',1,'stack.c']]],
   ['postordertraversal',['postorderTraversal',['../bTree_8c.html#a90dde9858fee3fce366b90a9e0e0f45a',1,'bTree.c']]],
   ['preordertraversal',['preorderTraversal',['../bTree_8c.html#aa3f73492e81d6b37c08196608ced7893',1,'bTree.c']]],
   ['printarr',['printArr',['../lowerTrangularMatrix_8c.html#aa7f4c84b902abb6de797ff623c2f6b38',1,'lowerTrangularMatrix.c']]],
@@ -9,5 +10,6 @@ var searchData=
   ['printoutofrangeerror',['printOutOfRangeError',['../mydef_8h.html#a7f10e7ec8c3936f38d586f11734bc8cd',1,'mylib.c']]],
   ['printoverflowerror',['printOverflowError',['../mydef_8h.html#aa5b6f7d0e4d69463887729a865a4d520',1,'mylib.c']]],
   ['printqueue',['printQueue',['../circularQueue_8c.html#af37434f65a4b771a6c56662dd63dc537',1,'circularQueue.c']]],
-  ['printunderflowerror',['printUnderflowError',['../mydef_8h.html#ab4c3e03369f35747122e01829379a645',1,'mylib.c']]]
+  ['printunderflowerror',['printUnderflowError',['../mydef_8h.html#ab4c3e03369f35747122e01829379a645',1,'mylib.c']]],
+  ['push',['push',['../stack_8c.html#a0423c169885f24acad9c54ceaeec254f',1,'stack.c']]]
 ];

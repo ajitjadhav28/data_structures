@@ -3,7 +3,7 @@
     #include "mydef.h"
 #endif
 /**
- * @brief Stack of a stack
+ * @brief Stack node structure
  * 
  */
 typedef struct stackNode

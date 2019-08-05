@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Data Structure Programs
    </div>
+   <div id="projectbrief">DataStructureproblemsinc</div>
   </td>
  </tr>
  </tbody>
@@ -68,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Collection of binary tree functions.  
+<p>Collection of binary tree (with height balancing) functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;bTree.h&quot;</code><br />
 </div><table class="memberdecls">
@@ -83,6 +84,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a972ac737f41df656837b994d1cab6c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bTree_8c.html#a972ac737f41df656837b994d1cab6c91">inorderTraversal</a> (<a class="el" href="structNode.html">Node</a> *root)</td></tr>
 <tr class="memdesc:a972ac737f41df656837b994d1cab6c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inorder traversal of a binary tree.  <a href="bTree_8c.html#a972ac737f41df656837b994d1cab6c91">More...</a><br /></td></tr>
 <tr class="separator:a972ac737f41df656837b994d1cab6c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6f4ec156c86e3c580f72ae5ec23c284"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bTree_8c.html#ad6f4ec156c86e3c580f72ae5ec23c284">inorderTraversalIt</a> (<a class="el" href="structNode.html">Node</a> *root)</td></tr>
+<tr class="memdesc:ad6f4ec156c86e3c580f72ae5ec23c284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterative inorder traversal using stack.  <a href="bTree_8c.html#ad6f4ec156c86e3c580f72ae5ec23c284">More...</a><br /></td></tr>
+<tr class="separator:ad6f4ec156c86e3c580f72ae5ec23c284"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3f73492e81d6b37c08196608ced7893"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bTree_8c.html#aa3f73492e81d6b37c08196608ced7893">preorderTraversal</a> (<a class="el" href="structNode.html">Node</a> *root)</td></tr>
 <tr class="memdesc:aa3f73492e81d6b37c08196608ced7893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Preorder traversal of tree from root.  <a href="bTree_8c.html#aa3f73492e81d6b37c08196608ced7893">More...</a><br /></td></tr>
 <tr class="separator:aa3f73492e81d6b37c08196608ced7893"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,7 +173,7 @@ Functions</h2></td></tr>
 <tr class="separator:a5d1953eade12f62a919e3a25fa68ee47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Collection of binary tree functions. </p>
+<div class="textblock"><p>Collection of binary tree (with height balancing) functions. </p>
 <dl class="section author"><dt>Author</dt><dd>Ajit Jadhav (<a href="#" onclick="location.href='mai'+'lto:'+'mr.'+'aj'+'itj'+'ad'+'hav'+'@g'+'mai'+'l.'+'com'; return false;">mr.aj<span style="display: none;">.nosp@m.</span>itja<span style="display: none;">.nosp@m.</span>dhav@<span style="display: none;">.nosp@m.</span>gmai<span style="display: none;">.nosp@m.</span>l.com</a>) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2019-06-23 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -724,6 +728,32 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td><em>Root <a class="el" href="structNode.html" title="Node structure for binary tree.">Node</a> of sub tree</em> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6f4ec156c86e3c580f72ae5ec23c284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6f4ec156c86e3c580f72ae5ec23c284">&#9670;&nbsp;</a></span>inorderTraversalIt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inorderTraversalIt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>root</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Iterative inorder traversal using stack. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>Root of tree </td></tr>
   </table>
   </dd>
 </dl>
