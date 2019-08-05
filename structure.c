@@ -5,7 +5,11 @@
  * @date 2019-06-23
  */
 
-#include "mydef.h"
+#ifndef __MY_LIB
+    #define __MY_LIB
+    #include "mydef.h"
+#endif
+#include "stack.h"
 
 /**
  * @brief prints gives string
@@ -42,10 +46,36 @@ void printStudentRef(Student *s)
 
 int main(int argc, char const *argv[])
 {
-    Student s = {"ajit", 9, hello};
+    Student s[2] = {{"ajit", 28, hello}, {"uday", 10, hello}};
+    Student *p;
+    stackNode *n;
     // s.p(s.name);
-    printStudent(s);    // pass by value
+    printStudent(s[0]);    // pass by value
     // printStudentRef(&(Student *){"Uday", 10, NULL});
-    printStudentRef(&s); // pass by reference
+    printStudentRef(&s[1]); // pass by reference
+    stackNode *TOP = NULL;
+    
+    TOP = push((void *)&s[0], "N", TOP);
+    printf("%p\n", TOP);
+    printf("Elements in stack %d\n", totalElementsInStack(TOP));
+    
+    TOP = push((void *)&s[1], "N", TOP);
+    printf("%p\n", TOP);
+    printf("Elements in stack %d\n", totalElementsInStack(TOP));
+
+    n = pop(&TOP);
+    printf("%p\n", TOP);
+    p = (Student *) n->data_ptr;
+    free(n);
+    printStudentRef(p);
+    printf("Elements in stack %d\n", totalElementsInStack(TOP));
+
+    n = pop(&TOP);
+    printf("%p\n", TOP);
+    p = (Student *) n->data_ptr;
+    free(n);
+    printStudentRef(p);
+    printf("Elements in stack %d\n", totalElementsInStack(TOP));
+    
     return 0;
 }

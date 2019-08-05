@@ -60,10 +60,10 @@ $(BIN)factorialRec.bin : ./recursion/factorial.c $(mylibs)
 $(BIN)arrayOperations.bin : ./recursion/arrayOperations.c $(mylibs)
 	$(COMPL)
 
-$(BIN)binarySearchTree.bin : bst.c bTree.c $(mylibs)
+$(BIN)binarySearchTree.bin : bst.c bTree.c stack.c $(mylibs)
 	$(COMPL) -lm 
 
-$(BIN)structure.bin : structure.c $(mylibs)
+$(BIN)structure.bin : structure.c stack.c $(mylibs)
 	$(COMPL)
 	
 $(shell mkdir -p bin)
