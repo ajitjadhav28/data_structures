@@ -39,6 +39,30 @@
 #define ResetColor() printf("\033[0m")
 
 /**
+ * @brief Max memory limit 2MB
+ * 
+ */
+#define MEM_LIMIT_2MB struct rlimit r1 = {2097152, 2097152}
+
+/**
+ * @brief Max memory limit 4MB
+ * 
+ */
+#define MEM_LIMIT_4MB struct rlimit r1 = {4194304, 4194304}
+
+/**
+ * @brief Max memory limit 8MB
+ * 
+ */
+#define MEM_LIMIT_8MB struct rlimit r1 = {8388608, 8388608}
+
+/**
+ * @brief Max memory limit 16MB
+ * 
+ */
+#define MEM_LIMIT_16MB struct rlimit r1 = {16777216, 16777216}
+
+/**
  * @brief Max memory limit 32MB
  * 
  */

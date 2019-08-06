@@ -24,6 +24,7 @@ Node * getNode(int, Node *lp, Node *rp, Node *pp);
 void insertBSTNode(int, Node *, Node **);
 void inorderTraversal(Node *);
 void inorderTraversalIt(Node *root);
+void preorderTraversalIt(Node *root);
 void preorderTraversal(Node *);
 void postorderTraversal(Node *);
 short hasOnlyLeftChild(Node *);

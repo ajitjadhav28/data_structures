@@ -14,7 +14,7 @@
 /**
  * @brief Calculates time in seconds
  */
-#define TimeInSec(x) ((double)clock()-x)/CLOCKS_PER_SEC
+#define TimeInSec(x, y) ((double)y-x)/CLOCKS_PER_SEC
 
 /**
  * @brief RANDOM_RANGE for rand()
@@ -31,7 +31,7 @@
     #include "mydef.h"
 #endif
 
-MEM_LIMIT_128MB;
+MEM_LIMIT_32MB;
 
 /**
  * @brief main function of binary search tree.  
@@ -42,8 +42,9 @@ MEM_LIMIT_128MB;
  */
 int main(int argc, char const *argv[])
 {
-    unsigned int n = 0, i = 0;
+    unsigned int n = 0, i = 0, t = 0;
     clock_t start, end;
+    FILE *f_ptr = NULL;
     setrlimit(RLIMIT_AS, &r1);
     Node *root = getNode(9, NULL, NULL, NULL);
     insertBSTNode(5, root, &root);
@@ -64,6 +65,8 @@ int main(int argc, char const *argv[])
     inorderTraversalIt(root);
     ps("\npreorder traversal: ");
     preorderTraversal(root);
+    ps("\nIterative Preorder traversal: ");
+    preorderTraversalIt(root);
     ps("\npostorder traversal: ");
     postorderTraversal(root);
     n = countNodes(root);
@@ -79,14 +82,27 @@ int main(int argc, char const *argv[])
     ps("\nEnter no of nodes to create tree with random data (enter 0 to exit): ");
     scanf("%u", &n);
     if(n <= 0 ) exit(0);
-    start = clock();
-    root = getNode(Random(), NULL, NULL, NULL);
-    printf("Time required to create 1 node : %f sec.\n", TimeInSec(start));
-    start = clock();
-    while(--n){
-        insertBSTNode(Random(), root, &root);
+    f_ptr = fopen("avl_insertion_performance.csv", "w+");
+    fprintf(f_ptr, "Sequence Number,Node,time\n");
+    if(!f_ptr){
+        printError("Can't open file!");
+        exit(1);
     }
-    printf("\nTime Required : %f sec.", TimeInSec(start));
+    t = Random();
+    start = clock();
+    root = getNode(t, NULL, NULL, NULL);
+    end = clock();
+    fprintf(f_ptr, "1,%d,%f\n", t, TimeInSec(start, end));
+    i = 1;
+    while(--n){
+        i++;
+        t = Random();            
+        start = clock();
+        insertBSTNode(t, root, &root);
+        end = clock();
+        fprintf(f_ptr, "%d,%d,%f\n", i, t, TimeInSec(start, end));
+    }
+    fclose(f_ptr);
     n = countNodes(root);
     i = depthOfTree(root) - 1;
     if(n > 1)
@@ -94,6 +110,17 @@ int main(int argc, char const *argv[])
     printf("\nTotal no of nodes: %d\n", n);
     printf("Depth of a Tree: %d\n", i);
     printf("Width of a tree: %d\n", widthOfTree(root));
+    
+    // start = clock();
+    // inorderTraversal(root);
+    // end = clock();
+    // printf("Recursive traversal time: %f sec.\n", TimeInSec(start, end));
+    
+    // start = clock();
+    // inorderTraversalIt(root);
+    // end = clock();
+    // printf("Iterative traversal time: %f sec.\n", TimeInSec(start, end));
+
     for(n = 0; n < 3; n++){
         printf(Red "\n[TRY-%d] " Reset "Enter number to search in tree (0-%d): ", n, RANDOM_RANGE);
         scanf("%d", &i);
