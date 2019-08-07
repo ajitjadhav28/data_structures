@@ -73,4 +73,10 @@ docs:
 	@open ./docs/html/index.html
 
 clean:
+	rm -rf $(PROGS)
+
+clean-docs:
+	rm -rf ./docs
+
+clean-all:
 	rm -rf $(PROGS) ./docs
