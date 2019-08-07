@@ -1,6 +1,7 @@
 var searchData=
 [
   ['data_5fstructures',['data_structures',['../autotoc_md0.html',1,'']]],
+  ['darray_2ec',['darray.c',['../darray_8c.html',1,'']]],
   ['debug_5fprint',['debug_print',['../mydef_8h.html#a7377cc956f5c81538f0fbf0a0492a539',1,'mydef.h']]],
   ['deletenode',['deleteNode',['../bTree_8c.html#ab81760617a9c3542d38afd1fa9356c9c',1,'bTree.c']]],
   ['deletetree',['deleteTree',['../bTree_8c.html#a80a114e1cd388dd0d685e92c0c599d37',1,'bTree.c']]],

@@ -3,6 +3,7 @@ var searchData=
   ['pop',['pop',['../stack_8c.html#a0d765bc7870d02a6dfe3ede5e4ca29fa',1,'stack.c']]],
   ['postordertraversal',['postorderTraversal',['../bTree_8c.html#a90dde9858fee3fce366b90a9e0e0f45a',1,'bTree.c']]],
   ['preordertraversal',['preorderTraversal',['../bTree_8c.html#aa3f73492e81d6b37c08196608ced7893',1,'bTree.c']]],
+  ['preordertraversalit',['preorderTraversalIt',['../bTree_8c.html#a2c7f6e189d9d5b407e36d94f04c06470',1,'bTree.c']]],
   ['printarr',['printArr',['../lowerTrangularMatrix_8c.html#aa7f4c84b902abb6de797ff623c2f6b38',1,'lowerTrangularMatrix.c']]],
   ['printerror',['printError',['../mydef_8h.html#a42bcc4b08fd2e4fbdd4a6cc96701e3f5',1,'mylib.c']]],
   ['printll',['printLl',['../reverseLinkedList_8c.html#a8e5188d0394fc865b1288bd072ec2e37',1,'reverseLinkedList.c']]],

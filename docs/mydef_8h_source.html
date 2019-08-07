@@ -97,22 +97,32 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define Reset &quot;\033[0m&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#define ResetColor() printf(&quot;\033[0m&quot;)</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="mydef_8h.html#a4caffa0bf4041f2f349eb6acae2d9d2e">   45</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_32MB struct rlimit r1 = {33554432, 33554432}</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="mydef_8h.html#a6753a774e2ea4178a871fac1dcedbe37">   45</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_2MB struct rlimit r1 = {2097152, 2097152}</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="mydef_8h.html#acef70a83c633daee7169286494f894a1">   51</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_128MB struct rlimit r1 = {134217728, 134217728}</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="mydef_8h.html#a44e53a617f77b1d585e1b69b49ee81ae">   51</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_4MB struct rlimit r1 = {4194304, 4194304}</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="mydef_8h.html#af3bb00327d756aed56b2b137134467fc">   57</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_512MB struct rlimit r1 = {536870912, 536870912}</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="mydef_8h.html#a2c2c33453a8f66882205479999fb3d17">   57</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_8MB struct rlimit r1 = {8388608, 8388608}</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="mydef_8h.html#ad94c21f36844b78087c901db60398518">   63</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_1GB struct rlimit r1 = {1073741824, 1073741824}</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="mydef_8h.html#a71804327bc11985ccf555ef1aaa6b859">   63</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_16MB struct rlimit r1 = {16777216, 16777216}</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <span class="keywordtype">bool</span>{TRUE=1, FALSE=0}bool;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#a7f10e7ec8c3936f38d586f11734bc8cd">printOutOfRangeError</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#a1169fc38acf53227ec5a571c26666cfb">printMemNotAvailable</a>();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#aa5b6f7d0e4d69463887729a865a4d520">printOverflowError</a>(<span class="keywordtype">char</span> *);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#ab4c3e03369f35747122e01829379a645">printUnderflowError</a>(<span class="keywordtype">char</span> *);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#a42bcc4b08fd2e4fbdd4a6cc96701e3f5">printError</a>(<span class="keywordtype">char</span> *);</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="mydef_8h.html#a4caffa0bf4041f2f349eb6acae2d9d2e">   69</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_32MB struct rlimit r1 = {33554432, 33554432}</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="mydef_8h.html#acef70a83c633daee7169286494f894a1">   75</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_128MB struct rlimit r1 = {134217728, 134217728}</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="mydef_8h.html#af3bb00327d756aed56b2b137134467fc">   81</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_512MB struct rlimit r1 = {536870912, 536870912}</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="mydef_8h.html#ad94c21f36844b78087c901db60398518">   87</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_1GB struct rlimit r1 = {1073741824, 1073741824}</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="mydef_8h.html#a233152e84e2831bde361499858908426">   93</a></span>&#160;<span class="preprocessor">#define MEM_LIMIT_4GB struct rlimit r1 = {4294967296, 4294967296}</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <span class="keywordtype">bool</span>{TRUE=1, FALSE=0}bool;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#a7f10e7ec8c3936f38d586f11734bc8cd">printOutOfRangeError</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#a1169fc38acf53227ec5a571c26666cfb">printMemNotAvailable</a>();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#aa5b6f7d0e4d69463887729a865a4d520">printOverflowError</a>(<span class="keywordtype">char</span> *);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#ab4c3e03369f35747122e01829379a645">printUnderflowError</a>(<span class="keywordtype">char</span> *);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mydef_8h.html#a42bcc4b08fd2e4fbdd4a6cc96701e3f5">printError</a>(<span class="keywordtype">char</span> *);</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="amydef_8h_html_aa5b6f7d0e4d69463887729a865a4d520"><div class="ttname"><a href="mydef_8h.html#aa5b6f7d0e4d69463887729a865a4d520">printOverflowError</a></div><div class="ttdeci">void printOverflowError(char *)</div><div class="ttdoc">print overflow error with type on stderr</div><div class="ttdef"><b>Definition:</b> mylib.c:26</div></div>
 <div class="ttc" id="amydef_8h_html_a1169fc38acf53227ec5a571c26666cfb"><div class="ttname"><a href="mydef_8h.html#a1169fc38acf53227ec5a571c26666cfb">printMemNotAvailable</a></div><div class="ttdeci">void printMemNotAvailable()</div><div class="ttdoc">Prints memory not available error on stderr.</div><div class="ttdef"><b>Definition:</b> mylib.c:16</div></div>

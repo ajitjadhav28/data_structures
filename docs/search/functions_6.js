@@ -1,6 +1,7 @@
 var searchData=
 [
   ['getbalancefactor',['getBalanceFactor',['../bTree_8c.html#a72ef093ee267f0e61b2ae3afa5c86bf1',1,'bTree.c']]],
+  ['getintarray',['getIntArray',['../darray_8c.html#a069dca255e7e5b8b4855830ee9c09fa6',1,'darray.c']]],
   ['getleafnodecount',['getLeafNodeCount',['../bTree_8c.html#aef08897e87b5b56e8feef402aab7e11d',1,'bTree.c']]],
   ['getmax',['getMax',['../bTree_8c.html#a979b9592b1696f1a554ea3fad2968239',1,'bTree.c']]],
   ['getmin',['getMin',['../bTree_8c.html#a95170e30155e1c67eba80a61dcf5b995',1,'bTree.c']]],

@@ -78,13 +78,15 @@ $(function() {
 <code>#include &lt;time.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;signal.h&gt;</code><br />
+<code>#include &quot;darray.h&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a0a9cf90b532b6679ebe0cdc0ffd4426d"><td class="memItemLeft" align="right" valign="top"><a id="a0a9cf90b532b6679ebe0cdc0ffd4426d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bst_8c.html#a0a9cf90b532b6679ebe0cdc0ffd4426d">TimeInSec</a>(x)&#160;&#160;&#160;((double)clock()-x)/CLOCKS_PER_SEC</td></tr>
-<tr class="memdesc:a0a9cf90b532b6679ebe0cdc0ffd4426d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates time in seconds. <br /></td></tr>
-<tr class="separator:a0a9cf90b532b6679ebe0cdc0ffd4426d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed38401ce29449685949f78459cb7da"><td class="memItemLeft" align="right" valign="top"><a id="a8ed38401ce29449685949f78459cb7da"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bst_8c.html#a8ed38401ce29449685949f78459cb7da">TimeInSec</a>(x,  y)&#160;&#160;&#160;((double)y-x)/CLOCKS_PER_SEC</td></tr>
+<tr class="memdesc:a8ed38401ce29449685949f78459cb7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates time in seconds. <br /></td></tr>
+<tr class="separator:a8ed38401ce29449685949f78459cb7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05905181f1ad192f9ba6f077fceb8751"><td class="memItemLeft" align="right" valign="top"><a id="a05905181f1ad192f9ba6f077fceb8751"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bst_8c.html#a05905181f1ad192f9ba6f077fceb8751">RANDOM_RANGE</a>&#160;&#160;&#160;999999</td></tr>
 <tr class="memdesc:a05905181f1ad192f9ba6f077fceb8751"><td class="mdescLeft">&#160;</td><td class="mdescRight">RANDOM_RANGE for rand() <br /></td></tr>
@@ -96,6 +98,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a205e7842de1ba5465a526a2a127bef03"><td class="memItemLeft" align="right" valign="top"><a id="a205e7842de1ba5465a526a2a127bef03"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>handle_interrupt</b> (int sig)</td></tr>
+<tr class="separator:a205e7842de1ba5465a526a2a127bef03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bst_8c.html#abf9e6b7e6f15df4b525a2e7705ba3089">main</a> (int argc, char const *argv[])</td></tr>
 <tr class="memdesc:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="mdescLeft">&#160;</td><td class="mdescRight">main function of binary search tree. <br  />
   <a href="bst_8c.html#abf9e6b7e6f15df4b525a2e7705ba3089">More...</a><br /></td></tr>
@@ -103,9 +108,12 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a51dcd5532b2be8cfb39c2570e5effeb0"><td class="memItemLeft" align="right" valign="top"><a id="a51dcd5532b2be8cfb39c2570e5effeb0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MEM_LIMIT_128MB</b></td></tr>
-<tr class="separator:a51dcd5532b2be8cfb39c2570e5effeb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56d8740c47899e7da4df42d9aa01e598"><td class="memItemLeft" align="right" valign="top"><a id="a56d8740c47899e7da4df42d9aa01e598"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MEM_LIMIT_4GB</b></td></tr>
+<tr class="separator:a56d8740c47899e7da4df42d9aa01e598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81899b47b181f0c4a27bbcdc2e56075c"><td class="memItemLeft" align="right" valign="top"><a id="a81899b47b181f0c4a27bbcdc2e56075c"></a>
+volatile sig_atomic_t&#160;</td><td class="memItemRight" valign="bottom"><b>sigInt</b> = 0</td></tr>
+<tr class="separator:a81899b47b181f0c4a27bbcdc2e56075c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of binary search tree. </p>
