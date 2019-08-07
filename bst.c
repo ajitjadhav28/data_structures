@@ -10,6 +10,8 @@
 #include <time.h>
 #include <math.h>
 #include <assert.h>
+#include <signal.h>
+#include "darray.h"
 
 /**
  * @brief Calculates time in seconds
@@ -31,7 +33,13 @@
     #include "mydef.h"
 #endif
 
-MEM_LIMIT_32MB;
+MEM_LIMIT_4GB;
+
+volatile sig_atomic_t sigInt = 0;
+
+void handle_interrupt(int sig) {
+    sigInt = 1;
+}
 
 /**
  * @brief main function of binary search tree.  
@@ -43,10 +51,13 @@ MEM_LIMIT_32MB;
 int main(int argc, char const *argv[])
 {
     unsigned int n = 0, i = 0, t = 0;
+    int *array, sz, *tmp;
     clock_t start, end;
-    FILE *f_ptr = NULL;
+    // FILE *f_ptr = NULL;
     setrlimit(RLIMIT_AS, &r1);
+    
     Node *root = getNode(9, NULL, NULL, NULL);
+    
     insertBSTNode(5, root, &root);
     insertBSTNode(7, root, &root);
     insertBSTNode(10, root, &root);
@@ -82,27 +93,29 @@ int main(int argc, char const *argv[])
     ps("\nEnter no of nodes to create tree with random data (enter 0 to exit): ");
     scanf("%u", &n);
     if(n <= 0 ) exit(0);
-    f_ptr = fopen("avl_insertion_performance.csv", "w+");
-    fprintf(f_ptr, "Sequence Number,Node,time\n");
-    if(!f_ptr){
-        printError("Can't open file!");
-        exit(1);
-    }
-    t = Random();
-    start = clock();
-    root = getNode(t, NULL, NULL, NULL);
-    end = clock();
-    fprintf(f_ptr, "1,%d,%f\n", t, TimeInSec(start, end));
+    // f_ptr = fopen("avl_insertion_performance.csv", "w+");
+    // fprintf(f_ptr, "Sequence Number,Node,time\n");
+    // if(!f_ptr){
+    //     printError("Can't open file!");
+    //     exit(1);
+    // }
+    // t = Random();
     i = 1;
+    root = getNode(1, NULL, NULL, NULL);
+    tmp = array = getIntArray(n);
+    sz = n;
+    *tmp++ = 1; 
     while(--n){
-        i++;
-        t = Random();            
-        start = clock();
-        insertBSTNode(t, root, &root);
-        end = clock();
-        fprintf(f_ptr, "%d,%d,%f\n", i, t, TimeInSec(start, end));
+        //t = Random();            
+        // start = clock();
+        insertBSTNode(++i, root, &root);
+        // end = clock();
+        *tmp++ = i;
+        // fprintf(f_ptr, "%d,%d,%f\n", i, n, TimeInSec(start, end));
+        if(sigInt)
+            deleteTree(root);
     }
-    fclose(f_ptr);
+    // fclose(f_ptr);
     n = countNodes(root);
     i = depthOfTree(root) - 1;
     if(n > 1)
@@ -110,6 +123,7 @@ int main(int argc, char const *argv[])
     printf("\nTotal no of nodes: %d\n", n);
     printf("Depth of a Tree: %d\n", i);
     printf("Width of a tree: %d\n", widthOfTree(root));
+    printf("Minimum : %d\nMaximum : %d\n", getMin(root), getMax(root));
     
     // start = clock();
     // inorderTraversal(root);
@@ -120,19 +134,35 @@ int main(int argc, char const *argv[])
     // inorderTraversalIt(root);
     // end = clock();
     // printf("Iterative traversal time: %f sec.\n", TimeInSec(start, end));
-
-    for(n = 0; n < 3; n++){
-        printf(Red "\n[TRY-%d] " Reset "Enter number to search in tree (0-%d): ", n, RANDOM_RANGE);
+    n = 1;
+    while(1){
+        printf(Red "\n[TRY-%d] " Reset "Enter number to search in tree: ", n++);
         scanf("%d", &i);
         start = clock();
-        i = searchNode(i, root) && 1;
+        t = searchNode(i, root) && 1;
         end = clock();
-        if(i)
-            printf(Green "Number found in %f sec.\n" Reset, (double)(end - start)/CLOCKS_PER_SEC);
+        if(t)
+            printf(Bold_Green "[TREE] " Green "Number found in %f sec.\n" Reset, (double)(end - start)/CLOCKS_PER_SEC);
         else
-            printf(Red "Number not found. Time to search tree: %f sec.\n" Reset, (double)(end - start)/CLOCKS_PER_SEC);
+            printf(Red "[TREE] " Red "Number not found. Time to search tree: %f sec.\n" Reset, (double)(end - start)/CLOCKS_PER_SEC);
+        start = clock();
+        t = intArrayLinearSearch(array, sz, i);
+        end = clock();
+        if(t)
+            printf(Bold_Green "[ARRAY_LINEAR] " Green "Number found in %f sec.\n" Reset, (double)(end - start)/CLOCKS_PER_SEC);
+        else
+            printf(Bold_Red "[ARRAY_LINEAR] " Red "Number not found. Time to search tree: %f sec.\n" Reset, (double)(end - start)/CLOCKS_PER_SEC);
+        start = clock();
+        t = intArrayBinarySearch(array, sz, i);
+        end = clock();
+        if(t)
+            printf(Bold_Green "[ARRAY_BINARY] " Green "Number found in %f sec.\n" Reset, (double)(end - start)/CLOCKS_PER_SEC);
+        else
+            printf(Bold_Red "[ARRAY_BINARY] " Red "Number not found. Time to search tree: %f sec.\n" Reset, (double)(end - start)/CLOCKS_PER_SEC);
+        if(sigInt) {
+            deleteTree(root);
+            free(array);
+        }
     }
-    printf("Minimum : %d\nMaximum : %d\n", getMin(root), getMax(root));
-    deleteTree(root);
     return 0;
 }
