@@ -12,6 +12,7 @@
 #include <assert.h>
 #include <signal.h>
 #include "darray.h"
+#include "mydef.h"
 
 /**
  * @brief Calculates time in seconds

@@ -6,6 +6,7 @@
  */
 
 #include "bTree.h"
+#include "mydef.h"
 
 /**
  * @brief Create new node

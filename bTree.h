@@ -1,7 +1,5 @@
-#ifndef __MY_LIB
-    #define __MY_LIB
-    #include "mydef.h"
-#endif
+#ifndef GUARD_bTree_h
+#define GUARD_bTree_h
 
 #include "stack.h"
 
@@ -45,3 +43,5 @@ void balanceTree(Node **root, Node *new_node);
 int getMin(Node *root);
 int getMax(Node *root);
 int widthOfTree(Node *root);
+
+#endif

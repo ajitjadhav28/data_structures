@@ -5,10 +5,8 @@
  * @date 2019-06-23
  */
 
-#ifndef __MY_LIB
-    #define __MY_LIB
-    #include "mydef.h"
-#endif
+
+#include "mydef.h"
 #include "stack.h"
 
 /**

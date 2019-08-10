@@ -7,6 +7,7 @@
  * 
  */
 #include "darray.h"
+#include "mydef.h"
 
 /**
  * @brief Get the Int Array object

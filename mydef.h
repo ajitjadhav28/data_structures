@@ -1,3 +1,6 @@
+#ifndef GUARD_mydef_h
+#define GUARD_mydef_h
+
 /**
  * @file mydef.h
  * @author Ajit Jadhav (mr.ajitjadhav@gmail.com)
@@ -108,3 +111,5 @@ void printMemNotAvailable();
 void printOverflowError(char *);
 void printUnderflowError(char *);
 void printError(char *);
+
+#endif

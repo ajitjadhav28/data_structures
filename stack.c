@@ -8,6 +8,8 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "mydef.h"
 #include "stack.h" 
 
 /**
