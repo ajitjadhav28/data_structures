@@ -11,8 +11,8 @@
 #include <math.h>
 #include <assert.h>
 #include <signal.h>
-#include "darray.h"
-#include "mydef.h"
+#include "../darray.h"
+#include "../mydef.h"
 
 /**
  * @brief Calculates time in seconds
@@ -28,11 +28,6 @@
  * @brief Random() macro to get random numbers below RANDOM_RANGE
  */
 #define Random() (rand()%RANDOM_RANGE)
-
-#ifndef __MY_LIB
-    #define __MY_LIB
-    #include "mydef.h"
-#endif
 
 MEM_LIMIT_4GB;
 

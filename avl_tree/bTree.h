@@ -1,7 +1,7 @@
 #ifndef GUARD_bTree_h
 #define GUARD_bTree_h
 
-#include "stack.h"
+#include "../stack.h"
 
 #define NODE_TYPE "B_TREE"
 

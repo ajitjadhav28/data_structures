@@ -5,7 +5,7 @@ LIST = rmo.bin ltm.bin StackUsingArray.bin StackUsingLl.bin \
 		fibRec.bin fibIt.bin linearQueue.bin mulRec.bin mulIt.bin \
 		intDivisionIt.bin intDivisionRec.bin circularQueue.bin \
 		arrayTraversal.bin reverseLinkedList.bin factorialRec.bin \
-		arrayOperations.bin binarySearchTree.bin structure.bin
+		arrayOperations.bin avlTree.bin structure.bin
 PROGS = $(addprefix $(BIN), $(LIST))
 COMPL = $(CC) $(CFLAG) $^ -o $@
 mylibs = mylib.c
@@ -60,7 +60,7 @@ $(BIN)factorialRec.bin : ./recursion/factorial.c $(mylibs)
 $(BIN)arrayOperations.bin : ./recursion/arrayOperations.c $(mylibs)
 	$(COMPL)
 
-$(BIN)binarySearchTree.bin : bst.c bTree.c stack.c darray.c $(mylibs)
+$(BIN)avlTree.bin : ./avl_tree/bst.c ./avl_tree/bTree.c stack.c darray.c $(mylibs)
 	$(COMPL) -lm 
 
 $(BIN)structure.bin : structure.c stack.c $(mylibs)
