@@ -8,7 +8,7 @@
 #include "../mydef.h"
 #include <sys/resource.h>
 
-MEM_LIMIT_32MB;
+MEM_LIMIT_128MB;
 
 /**
  * @brief Node for singly linked list
