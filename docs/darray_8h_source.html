@@ -66,19 +66,18 @@ $(function() {
 <div class="title">darray.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __MY_LIB</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">    #define __MY_LIB</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="mydef_8h.html">mydef.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">int</span> * <a class="code" href="darray_8c.html#a069dca255e7e5b8b4855830ee9c09fa6">getIntArray</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keywordtype">short</span> <a class="code" href="darray_8c.html#a705120a6a0c3d78f2ae39ca2bad168bd">intArrayLinearSearch</a>(<span class="keywordtype">int</span> *array, <span class="keywordtype">int</span> sizeOfArray, <span class="keywordtype">int</span> number);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">short</span> <a class="code" href="darray_8c.html#a6fe01e71363f4d76c9026b9669fe9927">intArrayBinarySearch</a>(<span class="keywordtype">int</span> *array, <span class="keywordtype">int</span> sizeOfArray, <span class="keywordtype">int</span> number);</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GUARD_darray_h</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GUARD_darray_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keywordtype">int</span> * <a class="code" href="darray_8c.html#a069dca255e7e5b8b4855830ee9c09fa6">getIntArray</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">short</span> <a class="code" href="darray_8c.html#a705120a6a0c3d78f2ae39ca2bad168bd">intArrayLinearSearch</a>(<span class="keywordtype">int</span> *array, <span class="keywordtype">int</span> sizeOfArray, <span class="keywordtype">int</span> number);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">short</span> <a class="code" href="darray_8c.html#a6fe01e71363f4d76c9026b9669fe9927">intArrayBinarySearch</a>(<span class="keywordtype">int</span> *array, <span class="keywordtype">int</span> sizeOfArray, <span class="keywordtype">int</span> number);</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="adarray_8c_html_a6fe01e71363f4d76c9026b9669fe9927"><div class="ttname"><a href="darray_8c.html#a6fe01e71363f4d76c9026b9669fe9927">intArrayBinarySearch</a></div><div class="ttdeci">short intArrayBinarySearch(int *array, int sizeOfArray, int number)</div><div class="ttdoc">Perform binary search on integer array.</div><div class="ttdef"><b>Definition:</b> darray.c:51</div></div>
-<div class="ttc" id="adarray_8c_html_a705120a6a0c3d78f2ae39ca2bad168bd"><div class="ttname"><a href="darray_8c.html#a705120a6a0c3d78f2ae39ca2bad168bd">intArrayLinearSearch</a></div><div class="ttdeci">short intArrayLinearSearch(int *array, int sizeOfArray, int number)</div><div class="ttdoc">Perform linear search on integer array.</div><div class="ttdef"><b>Definition:</b> darray.c:35</div></div>
-<div class="ttc" id="adarray_8c_html_a069dca255e7e5b8b4855830ee9c09fa6"><div class="ttname"><a href="darray_8c.html#a069dca255e7e5b8b4855830ee9c09fa6">getIntArray</a></div><div class="ttdeci">int * getIntArray(unsigned int size)</div><div class="ttdoc">Get the Int Array object.</div><div class="ttdef"><b>Definition:</b> darray.c:17</div></div>
-<div class="ttc" id="amydef_8h_html"><div class="ttname"><a href="mydef_8h.html">mydef.h</a></div><div class="ttdoc">Collection of functions and macros which are required multiple times.</div></div>
+<div class="ttc" id="adarray_8c_html_a6fe01e71363f4d76c9026b9669fe9927"><div class="ttname"><a href="darray_8c.html#a6fe01e71363f4d76c9026b9669fe9927">intArrayBinarySearch</a></div><div class="ttdeci">short intArrayBinarySearch(int *array, int sizeOfArray, int number)</div><div class="ttdoc">Perform binary search on integer array.</div><div class="ttdef"><b>Definition:</b> darray.c:52</div></div>
+<div class="ttc" id="adarray_8c_html_a705120a6a0c3d78f2ae39ca2bad168bd"><div class="ttname"><a href="darray_8c.html#a705120a6a0c3d78f2ae39ca2bad168bd">intArrayLinearSearch</a></div><div class="ttdeci">short intArrayLinearSearch(int *array, int sizeOfArray, int number)</div><div class="ttdoc">Perform linear search on integer array.</div><div class="ttdef"><b>Definition:</b> darray.c:36</div></div>
+<div class="ttc" id="adarray_8c_html_a069dca255e7e5b8b4855830ee9c09fa6"><div class="ttname"><a href="darray_8c.html#a069dca255e7e5b8b4855830ee9c09fa6">getIntArray</a></div><div class="ttdeci">int * getIntArray(unsigned int size)</div><div class="ttdoc">Get the Int Array object.</div><div class="ttdef"><b>Definition:</b> darray.c:18</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
