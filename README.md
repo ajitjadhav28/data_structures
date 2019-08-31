@@ -4,7 +4,7 @@ Check documentation **[here](https://ajitjadhav28.github.io/data_structures/file
 
 #### Environment 
 * **OS:** Ubuntu 18.04 x86_64 
-* **Kernel:** 4.15.x
+* **Kernel:** 5.0.x
 * **Compiler:** gcc 7.4.0
 
 #### Build binaries
