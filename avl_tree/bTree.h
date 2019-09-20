@@ -21,10 +21,12 @@ typedef struct Node
 Node * getNode(int, Node *lp, Node *rp, Node *pp);
 void insertBSTNode(int, Node *, Node **);
 void inorderTraversal(Node *);
-void inorderTraversalIt(Node *root);
-void preorderTraversalIt(Node *root);
 void preorderTraversal(Node *);
 void postorderTraversal(Node *);
+void inorderTraversalIt(Node *root);
+void preorderTraversalIt(Node *root);
+void postorderTraversalIt(Node *root);
+void levelOrderTraversal(Node *root);
 short hasOnlyLeftChild(Node *);
 short hasOnlyRightChild(Node *);
 short hasBothChilds(Node *);

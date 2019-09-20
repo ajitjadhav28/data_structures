@@ -78,8 +78,8 @@ void inorderTraversal(Node *root)
 
 /**
  * @brief Iterative inorder traversal using stack
- * 
- * @param root Root of tree
+ *
+ * @param root Root Node of tree
  */
 void inorderTraversalIt(Node *root)
 {
@@ -102,7 +102,7 @@ void inorderTraversalIt(Node *root)
 
 /**
  * @brief Iterative preorder traversal using stack
- * 
+ *
  * @param root Root of tree
  */
 void preorderTraversalIt(Node *root)
@@ -148,6 +148,76 @@ void postorderTraversal(Node *root)
     postorderTraversal(root->left);
     postorderTraversal(root->right);
     pi(root->data);
+}
+
+/**
+ * @brief Iterative version of postorder traversal using two stacks
+ *
+ * @param root Root node of a tree
+ */
+void postorderTraversalIt(Node *root){
+    stackNode *tos1 = NULL, *tos2 = NULL, *tmp = NULL;
+    if(root == NULL)
+        return;
+    tos1 = push((void *) root, NODE_TYPE, tos1);
+    while (tos1)
+    {
+        tmp = pop(&tos1);
+        root = (Node *) tmp->data_ptr;
+        free(tmp);
+        if(root->left)
+            tos1 = push((void *)root->left, NODE_TYPE, tos1);
+        if(root->right)
+            tos1 =  push((void *)root->right, NODE_TYPE, tos1);
+        tos2 = push((Node *)root, NODE_TYPE, tos2);
+    }
+    while (tos2)
+    {
+        tmp = pop(&tos2);
+        printf("%d ", ((Node *)tmp->data_ptr)->data);
+        free(tmp);
+    }
+
+}
+
+/**
+ * @brief levelOrderTraversal
+ * 
+ * @param root Root of tree
+ */
+void levelOrderTraversal(Node *root){
+    stackNode *tos = NULL, *tmp = NULL;
+    tos = push((void *) root, NODE_TYPE, tos);
+    while(tos){
+        while(tos){
+            if(tmp == NULL)
+                tmp = pop(&tos);
+            else {
+                tmp->down = pop(&tos);
+                tmp->down->up = tmp;
+                tmp = tmp->down;
+            }
+            root = (Node *)tmp->data_ptr;
+            printf("%d ", root->data);
+        }
+        while (tmp)
+        {
+            root = (Node *)tmp->data_ptr;
+            if(root->right)
+                tos = push((void *) root->right, NODE_TYPE, tos);
+            if(root->left)
+                tos = push((void *) root->left, NODE_TYPE, tos);
+            if(tmp->up == NULL){
+                free(tmp);
+                tmp = NULL;
+            }
+            else{
+            tmp = tmp->up;
+            free(tmp->down);
+            }
+        }
+
+    }
 }
 
 /**
@@ -352,7 +422,6 @@ void deleteNode(Node *root, Node *node, Node **r)
             tmp = node->parent;
             free(node);
             balanceTree(r, tmp);
-
         }
         tmp = root->left;
         free(root);
@@ -641,7 +710,7 @@ int getMax(Node *root)
 
 /**
  * @brief Calculates width of a tree.
- * 
+ *
  * @param root Root of tree
  * @return int Width of tree
  */

@@ -76,6 +76,10 @@ int main(int argc, char const *argv[])
     preorderTraversalIt(root);
     ps("\npostorder traversal: ");
     postorderTraversal(root);
+    ps("\nPostorder Iterative traversal: ");
+    postorderTraversalIt(root);
+    ps("\nLevel Order Traversal: ");
+    levelOrderTraversal(root);
     n = countNodes(root);
     i = depthOfTree(root) - 1;
     assert(1.44*log2(n) >= i);
