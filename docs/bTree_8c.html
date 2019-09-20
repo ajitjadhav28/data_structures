@@ -101,6 +101,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a90dde9858fee3fce366b90a9e0e0f45a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bTree_8c.html#a90dde9858fee3fce366b90a9e0e0f45a">postorderTraversal</a> (<a class="el" href="structNode.html">Node</a> *root)</td></tr>
 <tr class="memdesc:a90dde9858fee3fce366b90a9e0e0f45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Postorder traversal of tree.  <a href="bTree_8c.html#a90dde9858fee3fce366b90a9e0e0f45a">More...</a><br /></td></tr>
 <tr class="separator:a90dde9858fee3fce366b90a9e0e0f45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aeea05da385934cb58beadd6979cce5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bTree_8c.html#a7aeea05da385934cb58beadd6979cce5">postorderTraversalIt</a> (<a class="el" href="structNode.html">Node</a> *root)</td></tr>
+<tr class="memdesc:a7aeea05da385934cb58beadd6979cce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterative version of postorder traversal using two stacks.  <a href="bTree_8c.html#a7aeea05da385934cb58beadd6979cce5">More...</a><br /></td></tr>
+<tr class="separator:a7aeea05da385934cb58beadd6979cce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaed5ccfb09ad79c67c3929b2d079eea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bTree_8c.html#adaed5ccfb09ad79c67c3929b2d079eea">levelOrderTraversal</a> (<a class="el" href="structNode.html">Node</a> *root)</td></tr>
+<tr class="memdesc:adaed5ccfb09ad79c67c3929b2d079eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">levelOrderTraversal  <a href="bTree_8c.html#adaed5ccfb09ad79c67c3929b2d079eea">More...</a><br /></td></tr>
+<tr class="separator:adaed5ccfb09ad79c67c3929b2d079eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a924debb0b13ba1a9433fe3986da80d5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bTree_8c.html#a924debb0b13ba1a9433fe3986da80d5f">nthInorderSuccessor</a> (<a class="el" href="structNode.html">Node</a> *root, const <a class="el" href="structNode.html">Node</a> *node, const unsigned int n)</td></tr>
 <tr class="memdesc:a924debb0b13ba1a9433fe3986da80d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns <b>n**th successor of node **node</b> in tree.  <a href="bTree_8c.html#a924debb0b13ba1a9433fe3986da80d5f">More...</a><br /></td></tr>
 <tr class="separator:a924debb0b13ba1a9433fe3986da80d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -761,7 +767,7 @@ Functions</h2></td></tr>
 <p>Iterative inorder traversal using stack. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">root</td><td>Root of tree </td></tr>
+    <tr><td class="paramname">root</td><td>Root <a class="el" href="structNode.html" title="Node structure for binary tree.">Node</a> of tree </td></tr>
   </table>
   </dd>
 </dl>
@@ -836,6 +842,32 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>short </dd></dl>
+
+</div>
+</div>
+<a id="adaed5ccfb09ad79c67c3929b2d079eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaed5ccfb09ad79c67c3929b2d079eea">&#9670;&nbsp;</a></span>levelOrderTraversal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void levelOrderTraversal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>root</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>levelOrderTraversal </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>Root of tree </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -958,6 +990,32 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>root of a tree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7aeea05da385934cb58beadd6979cce5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aeea05da385934cb58beadd6979cce5">&#9670;&nbsp;</a></span>postorderTraversalIt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void postorderTraversalIt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>root</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Iterative version of postorder traversal using two stacks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>Root node of a tree </td></tr>
   </table>
   </dd>
 </dl>
